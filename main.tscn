@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cslijououflu2"]
+
+[ext_resource type="Texture2D" uid="uid://c2ns3bncjhd3m" path="res://tilesets/TilePixel.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bgh5btds4y8te" path="res://scripts/Player.gd" id="2_0xm2m"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
+resource_name = "Start"
+texture = ExtResource("1_ig7tw")
+texture_region_size = Vector2i(8, 8)
+3:0/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_sugp2"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_0wfyh")
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_sugp2")
+format = 2
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("2_0xm2m")
