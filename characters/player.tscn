@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfibpop1n7va"]
 
 [ext_resource type="Script" uid="uid://dhjfq7n63ysrn" path="res://characters/player.gd" id="1_eovys"]
-[ext_resource type="Texture2D" uid="uid://cvrek7o52ptn0" path="res://tileset/Orpheus.png" id="2_vb825"]
+[ext_resource type="Texture2D" uid="uid://dwyni4a6iexle" path="res://tileset/Orpheus.png" id="2_vb825"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65n15"]
 size = Vector2(12, 12)

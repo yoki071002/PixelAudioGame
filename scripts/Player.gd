@@ -1,5 +1,8 @@
 extends Node2D;
 
+# 添加位置变化信号
+signal position_changed
+
 # 32x32 pixel tiles
 const TILE_SIZE = 32;
 
@@ -58,6 +61,11 @@ func move_handle(event):
 # helper function 1: move player
 func move_player(direction: Vector2):
 	global_position += direction*TILE_SIZE;
+	# 更新瓦片位置
+	tile_position = tilemap.local_to_map(global_position)
+	# 发出位置变化信号
+	emit_signal("position_changed")
+	
 	move_bool = false;
 	# set a slight delay before playing the sound
 	await get_tree().create_timer(0.25).timeout;

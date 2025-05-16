@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://mspuadadmin2"]
+[gd_scene load_steps=7 format=3 uid="uid://mspuadadmin2"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_sjb42"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_pdtm5"]
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_b3oru"]
+[ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_ua5ty"]
+[ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="5_61w3m"]
+[ext_resource type="Script" uid="uid://1o7chjv6k0u0" path="res://scripts/InteractiveMusicController.gd" id="6_pdpul"]
 
 [node name="Level1" type="Node2D"]
 
@@ -17,3 +20,20 @@ position = Vector2(8, -8)
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 script = ExtResource("3_b3oru")
+
+[node name="Clock" type="Node" parent="."]
+script = ExtResource("4_ua5ty")
+
+[node name="SFXController" type="Node" parent="."]
+script = ExtResource("5_61w3m")
+
+[node name="MXController2" type="Node" parent="."]
+script = ExtResource("6_pdpul")
+layer_music_paths = {
+7: "res://audio/Music/MX_Trial_L1.wav",
+8: "res://audio/Music/MX_Trial_L2.wav",
+9: "res://audio/Music/MX_Trial_L3.wav"
+}
+
+[connection signal="beat_tick" from="Clock" to="SFXController" method="_on_clock_beat_tick"]
+[connection signal="beat_tick" from="Clock" to="MXController2" method="_on_clock_beat_tick"]
