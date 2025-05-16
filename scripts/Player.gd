@@ -7,10 +7,30 @@ const TILE_SIZE = 32;
 # find the TileMap node inside targeted Level Node
 @onready var tilemap: TileMap = get_parent().get_node("Level/TileMap2");
 
+
 # if moving is enabled
-var move_bool = true;
+var move_bool = true
+var tile_position: Vector2i = Vector2i(0, 0)
+
+func _ready():
+	var dot_size = 10;
+	var image := Image.create(dot_size, dot_size, false, Image.FORMAT_RGBA8)
+	image.fill(Color.RED)
+
+	var texture := ImageTexture.create_from_image(image)
+
+	var sprite := Sprite2D.new()
+	sprite.texture = texture
+	sprite.centered = true
+	add_child(sprite)
+	print("sprite add to player")
+
+	# Position player visually
+	global_position = tilemap.map_to_local(tile_position)
+
 
 # main function: control the operation
+@warning_ignore("unused_parameter")
 func move_handle(event):
 	# error handling: invalid input
 	if not move_bool:
@@ -115,4 +135,3 @@ func play_delayed_sound(path: String, delay: float):
 	player.play();
 	await player.finished;
 	player.queue_free();
-		
