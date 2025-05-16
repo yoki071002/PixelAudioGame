@@ -1,11 +1,11 @@
 extends Node2D;
 
-# 8x8 pixel tiles
-const TILE_SIZE = 8;
+# 32x32 pixel tiles
+const TILE_SIZE = 32;
 
 # when the scene is fully generated
 # find the TileMap node inside targeted Level Node
-@onready var tilemap: TileMap = get_parent().get_node("LEVEL/TileMap");
+@onready var tilemap: TileMap = get_parent().get_node("Level/TileMap2");
 
 # if moving is enabled
 var move_bool = true;
