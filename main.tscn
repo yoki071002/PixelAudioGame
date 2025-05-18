@@ -1,20 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://cslijououflu2"]
+[gd_scene load_steps=7 format=3 uid="uid://cslijououflu2"]
 
-[ext_resource type="PackedScene" uid="uid://chkvg0ngltym4" path="res://scenes/player.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://chkvg0ngltym4" path="res://scenes/Player.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dp0up3s484jh3" path="res://scenes/level1.tscn" id="2_1bvp3"]
-[ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tilesets/basic_tiles.tres" id="3_lquwl"]
+[ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_272bh"]
 
 [node name="Main" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_h2yge")]
 
 [node name="Level" parent="." instance=ExtResource("2_1bvp3")]
 
 [node name="TileMap2" type="TileMap" parent="Level"]
 tile_set = ExtResource("3_lquwl")
 format = 2
+layer_0/tile_data = PackedInt32Array(-65534, 2, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Level"]
 position = Vector2(32, -48)
+zoom = Vector2(7, 7)
 script = ExtResource("4_1bvp3")
+
+[node name="Clock" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("5_7mycd")
+
+[node name="SFXController" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("6_272bh")
+
+[node name="Player" parent="." instance=ExtResource("1_h2yge")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+
+[connection signal="beat_tick" from="Clock" to="SFXController" method="_on_clock_beat_tick"]
