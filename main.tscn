@@ -32,5 +32,3 @@ script = ExtResource("6_272bh")
 [node name="Player" parent="." instance=ExtResource("1_h2yge")]
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-
-[connection signal="beat_tick" from="Clock" to="SFXController" method="_on_clock_beat_tick"]

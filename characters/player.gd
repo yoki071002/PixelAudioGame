@@ -46,3 +46,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_collision_shape_2d_child_entered_tree(node: Node) -> void:
+	pass # Replace with function body.
+
+
+func _on_collision_shape_2d_child_exiting_tree(node: Node) -> void:
+	pass # Replace with function body.

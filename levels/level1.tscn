@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://mspuadadmin2"]
+[gd_scene load_steps=12 format=3 uid="uid://mspuadadmin2"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_sjb42"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_pdtm5"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="5_61w3m"]
 [ext_resource type="Script" uid="uid://1o7chjv6k0u0" path="res://scripts/InteractiveMusicController.gd" id="6_pdpul"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="7_045es"]
-[ext_resource type="AudioStream" uid="uid://7lq00m81wfyo" path="res://Audio/Narration/Wav/Vo_L1V1.wav" id="8_045es"]
+[ext_resource type="AudioStream" uid="uid://cu4ls5rjwafuu" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="8_045es"]
+[ext_resource type="AudioStream" uid="uid://bpwsexp36fier" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="9_omn1t"]
+[ext_resource type="AudioStream" uid="uid://b0q3qsq36pdlo" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="10_lf3p4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -40,16 +42,44 @@ layer_music_paths = {
 9: "res://audio/Music/MX_Trial_L3.wav"
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="L1V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
+script = ExtResource("7_045es")
+audio_clip = ExtResource("8_045es")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1V1"]
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
-script = ExtResource("7_045es")
-audio_file = ExtResource("8_045es")
 
-[connection signal="beat_tick" from="Clock" to="SFXController" method="_on_clock_beat_tick"]
-[connection signal="beat_tick" from="Clock" to="MXController2" method="_on_clock_beat_tick"]
-[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Player" method="_on_area_2d_body_exited"]
+[node name="L1V2" type="Area2D" parent="."]
+position = Vector2(8, -8)
+script = ExtResource("7_045es")
+audio_clip = ExtResource("9_omn1t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1V2"]
+position = Vector2(0, -80)
+shape = SubResource("RectangleShape2D_lf3p4")
+debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
+
+[node name="L1V3" type="Area2D" parent="."]
+position = Vector2(8, -8)
+script = ExtResource("7_045es")
+audio_clip = ExtResource("10_lf3p4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L1V3"]
+position = Vector2(80, -80)
+shape = SubResource("RectangleShape2D_lf3p4")
+debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
+
+[connection signal="body_entered" from="L1V1" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="L1V1" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="child_entered_tree" from="L1V1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="L1V1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
+[connection signal="body_entered" from="L1V2" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="L1V2" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="child_entered_tree" from="L1V2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="L1V2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
+[connection signal="body_entered" from="L1V3" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="L1V3" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="child_entered_tree" from="L1V3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="L1V3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
