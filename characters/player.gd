@@ -38,3 +38,11 @@ func _physics_process(delta):
 		   target_tile.y < 0 and target_tile.y > -13):
 			global_position = tilemap.map_to_local(target_tile)
 			print("Moved to: ", global_position)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	pass # Replace with function body.

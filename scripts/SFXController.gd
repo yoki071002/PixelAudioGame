@@ -58,9 +58,9 @@ func prepare_location_sfx(tile_pos: Vector2i):
 	var x_num = str(x_index).pad_zeros(2)
 	var y_num = str(y_index).pad_zeros(2)
 	
-	# 存储音效文件路径
-	x_sfx_path = "res://audio/SFX/SFX_DetectLocation_X_%s.wav" % x_num
-	y_sfx_path = "res://audio/SFX/SFX_DetectLocation_Y_%s.wav" % y_num
+	# 存储音效文件路径 - fixed capitalization here
+	x_sfx_path = "res://Audio/SFX/SFX_DetectLocation_X_%s.wav" % x_num
+	y_sfx_path = "res://Audio/SFX/SFX_DetectLocation_Y_%s.wav" % y_num
 	
 	print("[SFXController] 准备播放位置音效：X-%s, Y-%s" % [x_num, y_num])
 	
