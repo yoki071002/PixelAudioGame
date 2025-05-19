@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://mspuadadmin2"]
+[gd_scene load_steps=17 format=3 uid="uid://mspuadadmin2"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_sjb42"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_pdtm5"]
@@ -10,7 +10,11 @@
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="7_045es"]
 [ext_resource type="AudioStream" uid="uid://cu4ls5rjwafuu" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="8_045es"]
 [ext_resource type="AudioStream" uid="uid://bpwsexp36fier" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="9_omn1t"]
+[ext_resource type="Script" uid="uid://b6y5rm8pkx4gu" path="res://scripts/PlayAudioOnAwake.gd" id="10_8bcou"]
 [ext_resource type="AudioStream" uid="uid://b0q3qsq36pdlo" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="10_lf3p4"]
+[ext_resource type="AudioStream" uid="uid://um17q47thxkg" path="res://audio/Soundtrack/ogg/Level 1/MS_LV1_Branch-1.ogg" id="11_f7u7y"]
+[ext_resource type="AudioStream" uid="uid://bga7tpnymtecw" path="res://audio/Soundtrack/ogg/Level 1/MS_LV1_Branch-2.ogg" id="13_jq2cn"]
+[ext_resource type="AudioStream" uid="uid://bdl3dpnogvfir" path="res://audio/Soundtrack/ogg/Level 1/MS_LV1_Branch-3.ogg" id="15_a5s8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -56,6 +60,10 @@ audio_type = "\"narration\""
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
+[node name="Layer1" type="Node2D" parent="L1V1"]
+script = ExtResource("10_8bcou")
+audio_clip = ExtResource("11_f7u7y")
+
 [node name="L1V2" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("7_045es")
@@ -67,6 +75,10 @@ position = Vector2(0, -80)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
+[node name="Layer2" type="Node2D" parent="L1V2"]
+script = ExtResource("10_8bcou")
+audio_clip = ExtResource("13_jq2cn")
+
 [node name="L1V3" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("7_045es")
@@ -74,6 +86,39 @@ audio_clip = ExtResource("10_lf3p4")
 audio_type = "\"narration\""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L1V3"]
+position = Vector2(80, -80)
+shape = SubResource("RectangleShape2D_lf3p4")
+debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
+
+[node name="Layer3" type="Node2D" parent="L1V3"]
+script = ExtResource("10_8bcou")
+audio_clip = ExtResource("15_a5s8o")
+
+[node name="Layer1" type="Area2D" parent="."]
+position = Vector2(8, -8)
+script = ExtResource("10_8bcou")
+audio_clip = ExtResource("11_f7u7y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer1"]
+shape = SubResource("RectangleShape2D_lf3p4")
+debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
+
+[node name="Layer2" type="Area2D" parent="."]
+position = Vector2(8, -8)
+script = ExtResource("10_8bcou")
+audio_clip = ExtResource("13_jq2cn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2"]
+position = Vector2(0, -80)
+shape = SubResource("RectangleShape2D_lf3p4")
+debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
+
+[node name="Layer3" type="Area2D" parent="."]
+position = Vector2(8, -8)
+script = ExtResource("10_8bcou")
+audio_clip = ExtResource("15_a5s8o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer3"]
 position = Vector2(80, -80)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
@@ -90,3 +135,15 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [connection signal="body_exited" from="L1V3" to="Player" method="_on_area_2d_body_exited"]
 [connection signal="child_entered_tree" from="L1V3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
 [connection signal="child_exiting_tree" from="L1V3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
+[connection signal="body_entered" from="Layer1" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Layer1" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="child_entered_tree" from="Layer1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Layer1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
+[connection signal="body_entered" from="Layer2" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Layer2" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="child_entered_tree" from="Layer2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Layer2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
+[connection signal="body_entered" from="Layer3" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Layer3" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="child_entered_tree" from="Layer3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Layer3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
