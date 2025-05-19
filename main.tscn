@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cslijououflu2"]
 
-[ext_resource type="PackedScene" uid="uid://chkvg0ngltym4" path="res://scenes/Player.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://chkvg0ngltym4" path="res://scenes/player.tscn" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dp0up3s484jh3" path="res://scenes/level1.tscn" id="2_1bvp3"]
-[ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="3_lquwl"]
-[ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="4_1bvp3"]
-[ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="5_7mycd"]
-[ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_272bh"]
+[ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://Tileset/basic_tiles.tres" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://Scripts/camera_2d.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://Scripts/clock.gd" id="5_7mycd"]
+[ext_resource type="Script" path="res://Scripts/SFXController.gd" id="6_272bh"]
 
 [node name="Main" type="Node2D"]
 
