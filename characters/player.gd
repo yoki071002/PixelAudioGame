@@ -47,6 +47,7 @@ func _physics_process(delta):
 			global_position = tilemap.map_to_local(target_tile)
 			print("Moved to: ", global_position)
 
+<<<<<<< Updated upstream
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
@@ -62,7 +63,7 @@ func _on_collision_shape_2d_child_entered_tree(node: Node) -> void:
 
 func _on_collision_shape_2d_child_exiting_tree(node: Node) -> void:
 	pass # Replace with function body.
-	
+=======
 # control blind cane skill
 func _input(event):
 	if event.is_action_pressed("blind_up"):
@@ -73,3 +74,4 @@ func _input(event):
 		blind_cane.scan_tiles(Vector2.LEFT)
 	elif event.is_action_pressed("blind_right"):
 		blind_cane.scan_tiles(Vector2.RIGHT)
+>>>>>>> Stashed changes
