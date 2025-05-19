@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyk075vymb8a3"]
+
+[ext_resource type="Texture2D" uid="uid://r63pacck7v5s" path="res://Tileset/Ghost.png" id="1_h312f"]
+[ext_resource type="Script" uid="uid://8ts42231hln6" path="res://Characters/ghost.gd" id="1_v6ax1"]
+[ext_resource type="Texture2D" uid="uid://bvuaqjpor0dxf" path="res://Tileset/Ghost_Attack_Range.png" id="2_nunuq"]
+
+[node name="Ghost" type="Node2D"]
+script = ExtResource("1_v6ax1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h312f")
+
+[node name="AttackRegion" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackRegion"]
+texture = ExtResource("2_nunuq")

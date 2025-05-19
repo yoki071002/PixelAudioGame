@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://jtf7eco668kh"]
+
+[ext_resource type="Script" uid="uid://c15xot33v22ny" path="res://Characters/siren.gd" id="1_iq1ib"]
+[ext_resource type="Texture2D" uid="uid://cjepesifaqftn" path="res://Tileset/Siren.png" id="2_83lut"]
+[ext_resource type="Texture2D" uid="uid://djymhdnq1p2pb" path="res://Tileset/Siren_Singing_Range.png" id="3_wmmte"]
+
+[node name="siren" type="Node2D"]
+script = ExtResource("1_iq1ib")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_83lut")
+
+[node name="attackRegion" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="attackRegion"]
+texture = ExtResource("3_wmmte")
