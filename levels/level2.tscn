@@ -1,54 +1,54 @@
-[gd_scene load_steps=20 format=3 uid="uid://mspuadadmin2"]
+[gd_scene load_steps=20 format=3 uid="uid://bydg4l6ith3qx"]
 
-[ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_sjb42"]
-[ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_pdtm5"]
-[ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_b3oru"]
-[ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_ua5ty"]
-[ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="5_61w3m"]
-[ext_resource type="Script" uid="uid://fkf0e2tptgjo" path="res://scripts/AudioManager.gd" id="5_yydhl"]
-[ext_resource type="Script" uid="uid://1o7chjv6k0u0" path="res://scripts/InteractiveMusicController.gd" id="6_pdpul"]
-[ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="7_045es"]
-[ext_resource type="AudioStream" uid="uid://cu4ls5rjwafuu" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="8_045es"]
-[ext_resource type="AudioStream" uid="uid://bpwsexp36fier" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="9_omn1t"]
-[ext_resource type="AudioStream" uid="uid://b0q3qsq36pdlo" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="10_lf3p4"]
-[ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_jq2cn"]
-[ext_resource type="AudioStream" uid="uid://c7h5ddt62rkah" path="res://audio/Soundtrack/ogg/Level 1/Loop 1.ogg" id="13_a5s8o"]
-[ext_resource type="AudioStream" uid="uid://bvf6qbg8h5co7" path="res://audio/Soundtrack/ogg/Level 1/Loop 2.ogg" id="14_ls4ot"]
-[ext_resource type="AudioStream" uid="uid://bok38vlk3eval" path="res://audio/Soundtrack/ogg/Level 1/Loop 3.ogg" id="15_tx362"]
-[ext_resource type="Script" uid="uid://pollk5eh72gu" path="res://scripts/Win.gd" id="16_ls4ot"]
-[ext_resource type="PackedScene" uid="uid://ccbieme446xff" path="res://levels/MainMenu.tscn" id="17_tx362"]
+[ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_qegch"]
+[ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_jai45"]
+[ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_jj0ry"]
+[ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_w8ofq"]
+[ext_resource type="Script" uid="uid://fkf0e2tptgjo" path="res://scripts/AudioManager.gd" id="5_sg85d"]
+[ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_s0tuf"]
+[ext_resource type="Script" uid="uid://1o7chjv6k0u0" path="res://scripts/InteractiveMusicController.gd" id="7_hfi3b"]
+[ext_resource type="Script" uid="uid://pollk5eh72gu" path="res://scripts/Win.gd" id="8_jj0ry"]
+[ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_qegch"]
+[ext_resource type="AudioStream" uid="uid://cu4ls5rjwafuu" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="9_jai45"]
+[ext_resource type="AudioStream" uid="uid://bpwsexp36fier" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="10_jj0ry"]
+[ext_resource type="AudioStream" uid="uid://b0q3qsq36pdlo" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="11_w8ofq"]
+[ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_sg85d"]
+[ext_resource type="AudioStream" uid="uid://c7h5ddt62rkah" path="res://audio/Soundtrack/ogg/Level 1/Loop 1.ogg" id="13_s0tuf"]
+[ext_resource type="AudioStream" uid="uid://bvf6qbg8h5co7" path="res://audio/Soundtrack/ogg/Level 1/Loop 2.ogg" id="14_hfi3b"]
+[ext_resource type="AudioStream" uid="uid://bok38vlk3eval" path="res://audio/Soundtrack/ogg/Level 1/Loop 3.ogg" id="15_75exu"]
+[ext_resource type="PackedScene" uid="uid://ccbieme446xff" path="res://levels/MainMenu.tscn" id="17_jj0ry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7nqg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8ofq"]
 size = Vector2(16, 16)
 
 [node name="Level1" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource("1_sjb42")
+tile_set = ExtResource("1_qegch")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65536, 6, 0, -131072, 6, 0, -196608, 6, 0, -262144, 6, 0, -327680, 6, 0, -393216, 6, 0, -393215, 6, 0, -393214, 6, 0, -393213, 6, 0, -393212, 6, 0, -393211, 6, 0, -393210, 6, 0, -393209, 6, 0, -786427, 6, 0, -786426, 6, 0, -786425, 3, 0, -720889, 6, 0, -655353, 6, 0, -589817, 6, 0, -524281, 6, 0, -458745, 6, 0, -458746, 6, 0, -524282, 6, 0, -589818, 6, 0, -655354, 6, 0, -720890, 6, 0, -720891, 6, 0, -655355, 6, 0, -589819, 6, 0, -524283, 6, 0, -458747, 6, 0, -327679, 9, 0, -327678, 9, 0, -327677, 9, 0, -327676, 9, 0, -327675, 9, 0, -327674, 9, 0, -327673, 9, 0, -262137, 9, 0, -196601, 9, 0, -131065, 9, 0, -65529, 9, 0, -65530, 9, 0, -65531, 9, 0, -65532, 9, 0, -65533, 9, 0, -65534, 9, 0, -131070, 9, 0, -196607, 9, 0, -262143, 9, 0, -131071, 9, 0, -65535, 9, 0, -262142, 9, 0, -196606, 9, 0, -262141, 9, 0, -262140, 9, 0, -262139, 9, 0, -262138, 9, 0, -196602, 9, 0, -131066, 9, 0, -196603, 9, 0, -131067, 9, 0, -131068, 9, 0, -196604, 9, 0, -196605, 9, 0, -131069, 9, 0, -786432, 9, 0, -720896, 9, 0, -655360, 9, 0, -589824, 9, 0, -524288, 9, 0, -458752, 9, 0, -786431, 9, 0, -786430, 9, 0, -786429, 9, 0, -720893, 9, 0, -655357, 9, 0, -589821, 9, 0, -720894, 9, 0, -720895, 9, 0, -655359, 9, 0, -589823, 9, 0, -589822, 9, 0, -655358, 9, 0, -786428, 9, 0, -720892, 9, 0, -655356, 9, 0, -589820, 9, 0, -524284, 9, 0, -524285, 9, 0, -458749, 9, 0, -524286, 9, 0, -524287, 9, 0, -458751, 9, 0, -458750, 9, 0, -458748, 9, 0, -1, 9, 0, 65535, 9, 0, 0, 9, 0, 1, 9, 0, 2, 9, 0, 3, 9, 0, 4, 9, 0, 5, 9, 0, 6, 9, 0, 7, 9, 0, 8, 9, 0, -655361, 9, 0, -589825, 9, 0, -524289, 9, 0, -458753, 9, 0, -393217, 9, 0, -327681, 9, 0, -262145, 9, 0, -196609, 9, 0, -131073, 9, 0, -65537, 9, 0, -720897, 9, 0, -786433, 9, 0, -851968, 9, 0, -851967, 9, 0, -851966, 9, 0, -851965, 9, 0, -851964, 9, 0, -851963, 9, 0, -851962, 9, 0, -851961, 9, 0, -851960, 9, 0, -786424, 9, 0, -720888, 9, 0, -655352, 9, 0, -589816, 9, 0, -524280, 9, 0, -458744, 9, 0, -393208, 9, 0, -327672, 9, 0, -262136, 9, 0, -196600, 9, 0, -131064, 9, 0, -65528, 9, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_pdtm5")]
+[node name="Player" parent="." instance=ExtResource("2_jai45")]
 position = Vector2(8, -8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
-script = ExtResource("3_b3oru")
+script = ExtResource("3_jj0ry")
 
 [node name="Clock" type="Node" parent="."]
-script = ExtResource("4_ua5ty")
+script = ExtResource("4_w8ofq")
 
 [node name="AudioManager" type="Node" parent="."]
-script = ExtResource("5_yydhl")
+script = ExtResource("5_sg85d")
 
 [node name="SFXController" type="Node" parent="."]
-script = ExtResource("5_61w3m")
+script = ExtResource("6_s0tuf")
 
 [node name="MXController2" type="Node" parent="."]
-script = ExtResource("6_pdpul")
+script = ExtResource("7_hfi3b")
 layer_music_paths = {
 7: "res://audio/Music/MX_Trial_L1.wav",
 8: "res://audio/Music/MX_Trial_L2.wav",
@@ -57,8 +57,8 @@ layer_music_paths = {
 
 [node name="L1V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
-script = ExtResource("7_045es")
-audio_clip = ExtResource("8_045es")
+script = ExtResource("8_qegch")
+audio_clip = ExtResource("9_jai45")
 audio_type = "\"narration\""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L1V1"]
@@ -67,8 +67,8 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="L1V2" type="Area2D" parent="."]
 position = Vector2(8, -8)
-script = ExtResource("7_045es")
-audio_clip = ExtResource("9_omn1t")
+script = ExtResource("8_qegch")
+audio_clip = ExtResource("10_jj0ry")
 audio_type = "\"narration\""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L1V2"]
@@ -78,8 +78,8 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="L1V3" type="Area2D" parent="."]
 position = Vector2(8, -8)
-script = ExtResource("7_045es")
-audio_clip = ExtResource("10_lf3p4")
+script = ExtResource("8_qegch")
+audio_clip = ExtResource("11_w8ofq")
 audio_type = "\"narration\""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L1V3"]
@@ -89,8 +89,8 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="Layer1" type="Area2D" parent="."]
 position = Vector2(8, -8)
-script = ExtResource("12_jq2cn")
-audio_clip = ExtResource("13_a5s8o")
+script = ExtResource("12_sg85d")
+audio_clip = ExtResource("13_s0tuf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer1"]
 shape = SubResource("RectangleShape2D_lf3p4")
@@ -98,8 +98,8 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="Layer2" type="Area2D" parent="."]
 position = Vector2(8, -8)
-script = ExtResource("12_jq2cn")
-audio_clip = ExtResource("14_ls4ot")
+script = ExtResource("12_sg85d")
+audio_clip = ExtResource("14_hfi3b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2"]
 position = Vector2(0, -80)
@@ -108,21 +108,21 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="Layer3" type="Area2D" parent="."]
 position = Vector2(8, -8)
-script = ExtResource("12_jq2cn")
-audio_clip = ExtResource("15_tx362")
+script = ExtResource("12_sg85d")
+audio_clip = ExtResource("15_75exu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer3"]
 position = Vector2(80, -80)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("16_ls4ot")
-level_scene = ExtResource("17_tx362")
+[node name="Win" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
 position = Vector2(120, -184)
-shape = SubResource("RectangleShape2D_l7nqg")
+shape = SubResource("RectangleShape2D_w8ofq")
+script = ExtResource("8_jj0ry")
+level_scene = ExtResource("17_jj0ry")
 
 [connection signal="body_entered" from="L1V1" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="L1V1" to="Player" method="_on_area_2d_body_exited"]

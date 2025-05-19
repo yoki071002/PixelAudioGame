@@ -11,7 +11,7 @@ func play_audio(audio_type: String, audio_clip: AudioStream, parent: Node) -> vo
 
 	var audio_player = audio_players[audio_type]
 
-	if audio_player.playing:
+w	if audio_player.playing:
 		audio_player.stop()
 
 	audio_player.stream = audio_clip

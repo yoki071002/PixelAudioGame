@@ -3,28 +3,16 @@
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="3_lquwl"]
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="5_7mycd"]
-[ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://Scripts/SFXController.gd" id="6_272bh"]
+[ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_272bh"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Level" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
-
-[node name="TileMap2" type="TileMap" parent="Level"]
+[node name="Level#TileMap2" type="TileMap" parent="."]
 tile_set = ExtResource("3_lquwl")
 format = 2
 layer_0/tile_data = PackedInt32Array(-65534, 2, 0)
 
-[node name="Camera2D" type="Camera2D" parent="Level"]
+[node name="Level#Camera2D" type="Camera2D" parent="."]
 position = Vector2(32, -48)
 zoom = Vector2(7, 7)
 script = ExtResource("4_1bvp3")
@@ -37,16 +25,4 @@ script = ExtResource("5_7mycd")
 process_mode = 3
 script = ExtResource("6_272bh")
 
-[node name="Player" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
+[node name="Player#Sprite2D" type="Sprite2D" parent="."]
