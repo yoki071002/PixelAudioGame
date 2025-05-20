@@ -44,9 +44,22 @@ func _physics_process(delta):
 		# boundary check
 		if (target_tile.x >= 0 and target_tile.x < 8 and
 			target_tile.y < 0 and target_tile.y > -13):
+
+			# move the player
 			global_position = tilemap.map_to_local(target_tile)
 			print("Moved to: ", global_position)
 
+			# Check the tile the player just moved to
+			var tile_id = tilemap.get_cell_source_id(0, target_tile)
+			if tile_id == 9:
+				die()
+
+func die():
+	print("[Player] Stepped on lava. Died.")
+	can_move = false
+
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://ESCMenu.tscn")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
