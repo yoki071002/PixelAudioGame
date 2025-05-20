@@ -17,6 +17,7 @@ var level_locked_warning_sound
 
 # 关卡解锁状态 (初始只解锁第一关)
 var unlocked_levels = [true, false, false, false, false]
+var loading_level = false
 
 func _ready():
 	# 连接按钮信号
@@ -84,29 +85,26 @@ func _on_exit_menu_pressed():
 	get_tree().change_scene_to_file("res://levels/ESCMenu.tscn")
 
 func _on_level_button_pressed(level_index):
+	if loading_level:
+		return  # Prevent re-entry if a level is already loading
+
 	if unlocked_levels[level_index]:
+		loading_level = true  # Set flag to prevent further input
 		print("开始关卡 " + str(level_index + 1))
 		
 		# 播放开始关卡音效
 		play_sound(start_level_sound)
-		
-		# 等待音效播放完毕
 		await audio_player.finished
 		
 		# 播放相应数字音效
 		play_sound(number_sounds[level_index])
-		
-		# 等待数字音效播放完毕后加载关卡
 		await audio_player.finished
 		
 		# 加载相应关卡
 		get_tree().change_scene_to_file("res://levels/level" + str(level_index + 1) + ".tscn")
 	else:
 		print("关卡已锁定")
-		# 播放锁定警告音效
 		play_sound(level_locked_warning_sound)
-		
-		# 显示锁定警告
 		show_level_locked_warning()
 
 func show_level_locked_warning():
