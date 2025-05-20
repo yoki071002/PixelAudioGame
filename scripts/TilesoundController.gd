@@ -34,6 +34,18 @@ func play(path: String):
 func _play_one_shot(stream: AudioStream):
 	var player = AudioStreamPlayer2D.new()
 	player.stream = stream
+
+	var file_name = stream.resource_path.get_file()
+	if file_name.begins_with("UI_"):
+		player.bus = "UI"
+	elif file_name.begins_with("SFX_"):
+		player.bus = "SFX"
+	elif file_name.begins_with("MS_"):
+		player.bus = "MusicBus"
+	elif file_name.begins_with("VO_"):
+		player.bus = "Narration"
+	# else: it will use the default bus (Master)
+
 	add_child(player)
 	player.play()
 	player.connect("finished", Callable(player, "queue_free"))

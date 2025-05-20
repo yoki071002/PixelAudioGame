@@ -1,9 +1,17 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://csy3h1b53umtl"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://csy3h1b53umtl"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
 resource_name = "Reverb"
 room_size = 0.33
 wet = 0.01
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_j3pel"]
+resource_name = "Compressor"
+threshold = -28.2
+ratio = 2.4
+attack_us = 154.0
+release_ms = 159.0
+sidechain = &"SFX"
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
@@ -12,13 +20,15 @@ bus/1/name = &"MusicBus"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
-bus/1/volume_db = -5.18476
+bus/1/volume_db = -1.81699
 bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectCompressor_j3pel")
+bus/1/effect/0/enabled = true
 bus/2/name = &"Narration"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
-bus/2/volume_db = 0.0
+bus/2/volume_db = -2.01475
 bus/2/send = &"Master"
 bus/3/name = &"SFX"
 bus/3/solo = false
@@ -26,3 +36,9 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = &"Master"
+bus/4/name = &"UI"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -4.90236
+bus/4/send = &"Master"

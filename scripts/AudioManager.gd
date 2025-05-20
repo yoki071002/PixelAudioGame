@@ -14,18 +14,21 @@ func _ready():
 		sfx_player_node = AudioStreamPlayer.new()
 		sfx_player_node.name = SFX_PLAYER_NAME
 		add_child(sfx_player_node)
+	sfx_player_node.bus = "SFX"
 
 	music_player_node = get_node_or_null(MUSIC_PLAYER_NAME)
 	if not is_instance_valid(music_player_node):
 		music_player_node = AudioStreamPlayer.new()
 		music_player_node.name = MUSIC_PLAYER_NAME
 		add_child(music_player_node)
+	music_player_node.bus = "MusicBus"
 
 	narration_player_node = get_node_or_null(NARRATION_PLAYER_NAME)
 	if not is_instance_valid(narration_player_node):
 		narration_player_node = AudioStreamPlayer.new()
 		narration_player_node.name = NARRATION_PLAYER_NAME
 		add_child(narration_player_node)
+	narration_player_node.bus = "Narration"
 	
 	print("AudioManager ready. Players ensured/created with names: ", SFX_PLAYER_NAME, ", ", MUSIC_PLAYER_NAME, ", ", NARRATION_PLAYER_NAME)
 	print_player_status("_ready")
@@ -41,7 +44,7 @@ func print_player_status(context: String):
 	if is_instance_valid(narration_player_node): print("  NarrationPlayer ('%s'): Valid, ID: %s" % [NARRATION_PLAYER_NAME, narration_player_node.get_instance_id()])
 	else: printerr("  NarrationPlayer ('%s'): INVALID or Stale Reference" % NARRATION_PLAYER_NAME)
 
-func play_audio(audio_stream: AudioStream, type: String = "sfx", volume_db: float = 0.0, pitch_scale: float = 1.0):
+func play_audio(audio_stream: AudioStream, type: String = "sfx", pitch_scale: float = 1.0):
 	if not audio_stream:
 		printerr("AudioManager.play_audio: audio_stream is null. Cannot play.")
 		return
@@ -80,6 +83,12 @@ func play_audio(audio_stream: AudioStream, type: String = "sfx", volume_db: floa
 			printerr("AudioManager.play_audio: Attempting to recreate player '", player_name_to_check, "'")
 			var new_player = AudioStreamPlayer.new()
 			new_player.name = player_name_to_check
+			if type == "sfx":
+				new_player.bus = "SFX"
+			elif type == "music":
+				new_player.bus = "MusicBus"
+			elif type == "narration":
+				new_player.bus = "Narration"
 			add_child(new_player)
 			player_to_use = new_player
 			
@@ -98,7 +107,6 @@ func play_audio(audio_stream: AudioStream, type: String = "sfx", volume_db: floa
 		return
 
 	player_to_use.stream = audio_stream
-	player_to_use.volume_db = volume_db
 	player_to_use.pitch_scale = pitch_scale
 	player_to_use.play()
 

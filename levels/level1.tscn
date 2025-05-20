@@ -12,8 +12,13 @@
 [ext_resource type="AudioStream" uid="uid://bsqlrwbgxgwq8" path="res://Audio/Narration/Ogg/Vo_L1V3.ogg" id="10_lf3p4"]
 [ext_resource type="AudioStream" uid="uid://lkexcqdfba2s" path="res://Audio/Soundtrack/MS_LV1_Branch 1.ogg" id="12_f7u7y"]
 [ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_jq2cn"]
+<<<<<<< Updated upstream
 [ext_resource type="AudioStream" uid="uid://b4f5e71etpo31" path="res://Audio/Soundtrack/MS_LV1_Branch 2.ogg" id="13_jq2cn"]
 [ext_resource type="AudioStream" uid="uid://bcnmyda64tpxn" path="res://Audio/Soundtrack/MS_LV1_Branch 3.ogg" id="14_a5s8o"]
+=======
+[ext_resource type="AudioStream" uid="uid://cim40768y676y" path="res://Audio/Soundtrack/MS_LV1_Branch 2.ogg" id="13_jq2cn"]
+[ext_resource type="AudioStream" uid="uid://28v6p2qxowe6" path="res://Audio/Soundtrack/MS_LV1_Branch 3.ogg" id="14_a5s8o"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" uid="uid://cn5j8adckckb0" path="res://scripts/LevelCompleteManager.gd" id="15_jq2cn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
@@ -49,6 +54,8 @@ audio_player = NodePath("../AudioStreamPlayer2D")
 
 [node name="L1V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
+audio_bus_override = true
+audio_bus_name = &"Narration"
 script = ExtResource("7_045es")
 audio_clip = ExtResource("8_045es")
 audio_type = "\"narration\""
@@ -59,6 +66,8 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="L1V2" type="Area2D" parent="."]
 position = Vector2(8, -8)
+audio_bus_override = true
+audio_bus_name = &"Narration"
 script = ExtResource("7_045es")
 audio_clip = ExtResource("9_omn1t")
 audio_type = "\"narration\""
@@ -70,6 +79,8 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="L1V3" type="Area2D" parent="."]
 position = Vector2(8, -8)
+audio_bus_override = true
+audio_bus_name = &"Narration"
 script = ExtResource("7_045es")
 audio_clip = ExtResource("10_lf3p4")
 audio_type = "\"narration\""
@@ -81,6 +92,7 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="Layer1" type="Area2D" parent="."]
 position = Vector2(8, -8)
+audio_bus_name = &"MusicBus"
 script = ExtResource("12_jq2cn")
 audio_clip = ExtResource("12_f7u7y")
 
@@ -90,6 +102,7 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="Layer2" type="Area2D" parent="."]
 position = Vector2(8, -8)
+audio_bus_name = &"MusicBus"
 script = ExtResource("12_jq2cn")
 audio_clip = ExtResource("13_jq2cn")
 
@@ -100,6 +113,7 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="Layer3" type="Area2D" parent="."]
 position = Vector2(8, -8)
+audio_bus_name = &"MusicBus"
 script = ExtResource("12_jq2cn")
 audio_clip = ExtResource("14_a5s8o")
 

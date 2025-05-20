@@ -46,6 +46,13 @@ func _ready():
 	z_index = 1
 	add_child(audio_player)
 	audio_player.stream = audio_clip
+	if audio_clip and audio_clip.resource_path: # Set bus based on the initial audio_clip
+		var file_name = audio_clip.resource_path.get_file()
+		if file_name.begins_with("UI_"): audio_player.bus = "UI"
+		elif file_name.begins_with("SFX_"): audio_player.bus = "SFX"
+		elif file_name.begins_with("MS_"): audio_player.bus = "MusicBus"
+		elif file_name.begins_with("VO_"): audio_player.bus = "Narration"
+		# else: default bus (Master)
 
 	await get_tree().process_frame
 
@@ -86,6 +93,8 @@ func _input(event: InputEvent) -> void:
 
 			# Play skill activation sound
 			audio_player.stream = skill_activation_sound
+			# skill_activation_sound is SFX_WhiteCaneDetect_.wav, so set bus to SFX
+			audio_player.bus = "SFX"
 			audio_player.play()
 
 func _teleport_to_player() -> void:

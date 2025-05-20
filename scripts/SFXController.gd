@@ -18,8 +18,10 @@ func _ready():
 
 	# 添加音频播放器
 	add_child(audio_player_x)
+	audio_player_x.bus = "SFX"
 	add_child(audio_player_y)
-	print("[SFXController] 音频播放器已添加")
+	audio_player_y.bus = "SFX"
+	print("[SFXController] 音频播放器已添加并设置SFX总线")
 
 	# 连接节拍信号
 	if clock:

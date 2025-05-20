@@ -34,6 +34,7 @@ func load_menu_sound():
 	ui_sound = load("res://Audio/UISounds/UI_Menu.wav")
 	if ui_sound:
 		audio_player.stream = ui_sound
+		audio_player.bus = "UI" # Based on "UI_Menu.wav"
 
 func _input(event):
 	# 键盘快捷键处理

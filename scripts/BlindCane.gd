@@ -32,6 +32,8 @@ var direction_map := {
 
 func _ready():
 	await get_tree().process_frame
+	if audio_player:
+		audio_player.bus = "SFX"
 	if clock:
 		clock.beat_tick.connect(_on_beat_tick)
 		print("BlindCane: Connected to clock.")

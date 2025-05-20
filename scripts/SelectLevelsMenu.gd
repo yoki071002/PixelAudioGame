@@ -34,6 +34,7 @@ func _ready():
 	# 加载音效
 	load_sounds()
 	add_child(audio_player)
+	audio_player.bus = "UI" # All sounds played by this player are UI sounds
 	
 	# 加载游戏进度
 	load_unlocked_levels()

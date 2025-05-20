@@ -1,7 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://cfibpop1n7va"]
 
 [ext_resource type="Script" uid="uid://dhjfq7n63ysrn" path="res://characters/player.gd" id="1_eovys"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://dfd1x8qwj0l22" path="res://tileset/Orpheus.png" id="2_vb825"]
+=======
+[ext_resource type="Texture2D" uid="uid://dqwtumflmdqb4" path="res://tileset/Orpheus.png" id="2_vb825"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" uid="uid://drb5uq2vj6jw7" path="res://scripts/BlindCane.gd" id="3_vb825"]
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_x0jl3"]
 
