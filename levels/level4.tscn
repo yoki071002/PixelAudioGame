@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://vv3nv6e47uwu"]
+[gd_scene load_steps=20 format=3 uid="uid://vv3nv6e47uwu"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_yruw8"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_1c06p"]
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_b8ghs"]
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_lrvx3"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_21lkn"]
+[ext_resource type="Script" uid="uid://7t367kp6rptu" path="res://scripts/TilesoundController.gd" id="6_lrvx3"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_efk67"]
 [ext_resource type="AudioStream" uid="uid://bb7mtpx0d416h" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="9_ok0nw"]
 [ext_resource type="AudioStream" uid="uid://c1g07bkrw6fny" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="10_g2luv"]
@@ -40,6 +41,9 @@ script = ExtResource("4_lrvx3")
 
 [node name="SFXController" type="Node" parent="."]
 script = ExtResource("6_21lkn")
+
+[node name="TilesoundController" type="Node2D" parent="."]
+script = ExtResource("6_lrvx3")
 
 [node name="MXController2" type="Node" parent="."]
 

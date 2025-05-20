@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bydg4l6ith3qx"]
+[gd_scene load_steps=15 format=3 uid="uid://bydg4l6ith3qx"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_qegch"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_jai45"]
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_jj0ry"]
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_w8ofq"]
+[ext_resource type="Script" uid="uid://7t367kp6rptu" path="res://scripts/TilesoundController.gd" id="6_fjysh"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_s0tuf"]
 [ext_resource type="AudioStream" uid="uid://cj8wdf21co4lu" path="res://audio/Narration/Ogg/Vo_L2V1.ogg" id="8_hq01p"]
 [ext_resource type="Script" uid="uid://pollk5eh72gu" path="res://scripts/Win.gd" id="8_jj0ry"]
@@ -37,6 +38,9 @@ script = ExtResource("4_w8ofq")
 
 [node name="SFXController" type="Node" parent="."]
 script = ExtResource("6_s0tuf")
+
+[node name="TilesoundController" type="Node2D" parent="."]
+script = ExtResource("6_fjysh")
 
 [node name="MXController2" type="Node" parent="."]
 
