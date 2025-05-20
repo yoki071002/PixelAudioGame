@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bydg4l6ith3qx"]
+[gd_scene load_steps=13 format=3 uid="uid://bydg4l6ith3qx"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_qegch"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_jai45"]
@@ -6,17 +6,13 @@
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_w8ofq"]
 [ext_resource type="Script" uid="uid://7t367kp6rptu" path="res://scripts/TilesoundController.gd" id="6_fjysh"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_s0tuf"]
-[ext_resource type="AudioStream" uid="uid://cj8wdf21co4lu" path="res://audio/Narration/Ogg/Vo_L2V1.ogg" id="8_hq01p"]
-[ext_resource type="Script" uid="uid://pollk5eh72gu" path="res://scripts/Win.gd" id="8_jj0ry"]
+[ext_resource type="AudioStream" uid="uid://v828x6kejtok" path="res://audio/Narration/Ogg/Vo_L2V1.ogg" id="8_hq01p"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_qegch"]
-[ext_resource type="AudioStream" uid="uid://ccivi8uqt0t6r" path="res://audio/Narration/Ogg/Vo_L2V2.ogg" id="9_fjysh"]
-[ext_resource type="Texture2D" uid="uid://clwwx283o44rg" path="res://tileset/Ghost.png" id="11_fjysh"]
-[ext_resource type="Texture2D" uid="uid://7jhgfcrg5bu2" path="res://tileset/Ghost_Attack_Range.png" id="12_bcewn"]
+[ext_resource type="AudioStream" uid="uid://mktsk2rrnop1" path="res://audio/Narration/Ogg/Vo_L2V2.ogg" id="9_fjysh"]
+[ext_resource type="Texture2D" uid="uid://r8tqfcbcvldo" path="res://tileset/Ghost.png" id="11_fjysh"]
+[ext_resource type="Texture2D" uid="uid://blvm4x4pgs1la" path="res://tileset/Ghost_Attack_Range.png" id="12_bcewn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
-size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8ofq"]
 size = Vector2(16, 16)
 
 [node name="Level2" type="Node2D"]
@@ -65,12 +61,7 @@ position = Vector2(0, -80)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
-[node name="Win" type="Area2D" parent="."]
-script = ExtResource("8_jj0ry")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
-position = Vector2(120, -184)
-shape = SubResource("RectangleShape2D_w8ofq")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="L2V2"]
 
 [node name="Ghost1" type="Sprite2D" parent="."]
 position = Vector2(24, -24)
