@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://dn01qdkowsbsp" path="res://audio/Soundtrack/ogg/Level 1/Loop 1.ogg" id="13_a5s8o"]
 [ext_resource type="AudioStream" uid="uid://c8iarlnk7i5uo" path="res://audio/Soundtrack/ogg/Level 1/Loop 2.ogg" id="14_ls4ot"]
 [ext_resource type="AudioStream" uid="uid://dmu64k23xbif8" path="res://audio/Soundtrack/ogg/Level 1/Loop 3.ogg" id="15_tx362"]
-[ext_resource type="Script" uid="uid://pollk5eh72gu" path="res://scripts/Win.gd" id="16_ls4ot"]
+[ext_resource type="Script" path="res://scripts/Win.gd" id="16_ls4ot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)

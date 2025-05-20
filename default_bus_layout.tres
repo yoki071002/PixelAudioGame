@@ -2,8 +2,7 @@
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
 resource_name = "Reverb"
-hipass = 0.3
-wet = 0.2
+wet = 0.02
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
