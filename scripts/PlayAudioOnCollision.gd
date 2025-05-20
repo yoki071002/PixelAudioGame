@@ -11,4 +11,4 @@ func _on_body_entered(body: Node) -> void:
 		play_audio()
 
 func play_audio():
-	AudioManager.play_audio(audio_type, audio_clip, self)
+	AudioManager.play_audio(audio_clip, audio_type)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bydg4l6ith3qx"]
+[gd_scene load_steps=14 format=3 uid="uid://bydg4l6ith3qx"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_qegch"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_jai45"]
@@ -6,14 +6,12 @@
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_w8ofq"]
 [ext_resource type="Script" uid="uid://7t367kp6rptu" path="res://scripts/TilesoundController.gd" id="6_fjysh"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_s0tuf"]
-[ext_resource type="AudioStream" uid="uid://v828x6kejtok" path="res://Audio/Narration/Ogg/Vo_L2V1.ogg" id="8_hq01p"]
+[ext_resource type="AudioStream" uid="uid://be8hoe0vvef4a" path="res://Audio/Narration/Ogg/Vo_L2V1.ogg" id="8_hq01p"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_qegch"]
-[ext_resource type="Texture2D" uid="uid://r8tqfcbcvldo" path="res://tileset/Ghost.png" id="11_fjysh"]
-[ext_resource type="Texture2D" uid="uid://blvm4x4pgs1la" path="res://tileset/Ghost_Attack_Range.png" id="12_bcewn"]
+[ext_resource type="AudioStream" uid="uid://csf7v2cdp1o4h" path="res://Audio/Narration/Ogg/Vo_L2V2.ogg" id="9_fjysh"]
+[ext_resource type="Texture2D" uid="uid://b2bc4kiu4c1tf" path="res://tileset/Ghost.png" id="11_fjysh"]
+[ext_resource type="Texture2D" uid="uid://c2qothcxe8nxd" path="res://tileset/Ghost_Attack_Range.png" id="12_bcewn"]
 [ext_resource type="Script" uid="uid://cn5j8adckckb0" path="res://scripts/LevelCompleteManager.gd" id="12_fjysh"]
-[ext_resource type="Script" uid="uid://cj3ly1ir7uiwe" path="res://scripts/Intro+Loop.gd" id="13_qegch"]
-[ext_resource type="AudioStream" uid="uid://ca5vp10k2h5v2" path="res://Audio/Soundtrack/MS_LV2_Intro.ogg" id="14_jai45"]
-[ext_resource type="AudioStream" uid="uid://bkemoe85iugtj" path="res://Audio/Soundtrack/MS_LV2_Loop.ogg" id="15_jj0ry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -38,9 +36,10 @@ script = ExtResource("4_w8ofq")
 [node name="SFXController" type="Node" parent="."]
 script = ExtResource("6_s0tuf")
 
-[node name="TilesoundController" type="Node2D" parent="." node_paths=PackedStringArray("tilemap")]
+[node name="TilesoundController" type="Node2D" parent="." node_paths=PackedStringArray("tilemap", "audio_player")]
 script = ExtResource("6_fjysh")
 tilemap = NodePath("../TileMap")
+audio_player = NodePath("../AudioStreamPlayer2D")
 
 [node name="L2V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
@@ -49,6 +48,17 @@ audio_clip = ExtResource("8_hq01p")
 audio_type = "\"narration\""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L2V1"]
+shape = SubResource("RectangleShape2D_lf3p4")
+debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
+
+[node name="L2V2" type="Area2D" parent="."]
+position = Vector2(8, -8)
+script = ExtResource("8_qegch")
+audio_clip = ExtResource("9_fjysh")
+audio_type = "\"narration\""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L2V2"]
+position = Vector2(0, -80)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
@@ -124,12 +134,11 @@ texture = ExtResource("12_bcewn")
 [node name="LevelComplete" type="Node" parent="."]
 script = ExtResource("12_fjysh")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-script = ExtResource("13_qegch")
-first_clip = ExtResource("14_jai45")
-second_clip = ExtResource("15_jj0ry")
-
 [connection signal="body_entered" from="L2V1" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="L2V1" to="Player" method="_on_area_2d_body_exited"]
 [connection signal="child_entered_tree" from="L2V1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
 [connection signal="child_exiting_tree" from="L2V1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
+[connection signal="body_entered" from="L2V2" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="L2V2" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="child_entered_tree" from="L2V2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="L2V2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]

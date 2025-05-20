@@ -19,6 +19,9 @@ var level_locked_warning_sound
 var unlocked_levels = [true, false, false, false, false]
 var loading_level = false
 
+# Coin显示标签
+@onready var coins_label = $CoinsLabel
+
 func _ready():
 	# 连接按钮信号
 	exit_menu_button.pressed.connect(_on_exit_menu_pressed)
@@ -32,11 +35,26 @@ func _ready():
 	load_sounds()
 	add_child(audio_player)
 	
+	# 加载游戏进度
+	load_unlocked_levels()
+	
+	# 加载Coin数据
+	load_coin_data()
+	
 	# 更新按钮状态
 	update_button_states()
 	
 	# 播放选关菜单音效
 	play_sound(select_sound)
+
+func load_coin_data():
+	# 从LevelCompleteManager加载Coin数据
+	var lcm = load("res://scripts/LevelCompleteManager.gd")
+	lcm.load_coins()
+	
+	# 更新UI显示
+	if coins_label:
+		coins_label.text = "金币: %d" % lcm.total_coins
 
 func load_sounds():
 	# 加载所有音效
@@ -61,6 +79,22 @@ func update_button_states():
 	level3_button.disabled = !unlocked_levels[2]
 	level4_button.disabled = !unlocked_levels[3]
 	level5_button.disabled = !unlocked_levels[4]
+	
+	# 更新按钮提示文本，显示需要的Coin数量
+	var lcm = load("res://scripts/LevelCompleteManager.gd")
+	
+	# 为每个锁定的关卡添加所需金币提示
+	if !unlocked_levels[1] and has_node("2 for Level 2/RequiredCoins"):
+		get_node("2 for Level 2/RequiredCoins").text = "需要 %d 金币" % lcm.coins_required[1]
+	
+	if !unlocked_levels[2] and has_node("3 for Level 3/RequiredCoins"):
+		get_node("3 for Level 3/RequiredCoins").text = "需要 %d 金币" % lcm.coins_required[2]
+	
+	if !unlocked_levels[3] and has_node("4 for Level 4/RequiredCoins"):
+		get_node("4 for Level 4/RequiredCoins").text = "需要 %d 金币" % lcm.coins_required[3]
+	
+	if !unlocked_levels[4] and has_node("5 for Level 5/RequiredCoins"):
+		get_node("5 for Level 5/RequiredCoins").text = "需要 %d 金币" % lcm.coins_required[4]
 
 func _input(event):
 	# 按键选择关卡
@@ -88,6 +122,7 @@ func _on_level_button_pressed(level_index):
 	if loading_level:
 		return  # Prevent re-entry if a level is already loading
 
+	# 检查关卡是否已解锁
 	if unlocked_levels[level_index]:
 		loading_level = true  # Set flag to prevent further input
 		print("开始关卡 " + str(level_index + 1))
@@ -103,26 +138,59 @@ func _on_level_button_pressed(level_index):
 		# 加载相应关卡
 		get_tree().change_scene_to_file("res://levels/level" + str(level_index + 1) + ".tscn")
 	else:
-		print("关卡已锁定")
+		# 检查是否有足够的Coin
+		var lcm = load("res://scripts/LevelCompleteManager.gd")
+		if lcm.has_enough_coins_for_level(level_index):
+			# 解锁关卡
+			unlocked_levels[level_index] = true
+			save_unlocked_levels()
+			update_button_states()
+			
+			print("使用金币解锁关卡 " + str(level_index + 1))
+			play_sound(start_level_sound)
+		else:
+			print("关卡已锁定，金币不足")
 		play_sound(level_locked_warning_sound)
-		show_level_locked_warning()
+		show_level_locked_warning(level_index)
 
-func show_level_locked_warning():
+func show_level_locked_warning(level_index = -1):
 	# 在此处实现警告显示逻辑
-	# 可以使用对话框或UI元素显示警告
+	var lcm = load("res://scripts/LevelCompleteManager.gd")
 	var warning_dialog = AcceptDialog.new()
 	warning_dialog.title = "关卡锁定"
-	warning_dialog.dialog_text = "您选择的关卡已锁定。请先通关前面已解锁的关卡来解锁下一关！"
+	
+	if level_index >= 0 and level_index < lcm.coins_required.size():
+		warning_dialog.dialog_text = "您选择的关卡已锁定。\n需要 %d 个金币才能解锁此关卡。\n您当前拥有 %d 个金币。" % [
+			lcm.coins_required[level_index],
+			lcm.total_coins
+		]
+	else:
+		warning_dialog.dialog_text = "您选择的关卡已锁定。请先通关前面已解锁的关卡来获取更多金币！"
+	
 	add_child(warning_dialog)
 	warning_dialog.popup_centered()
 
 # 用于外部调用解锁下一关
-func unlock_next_level(current_level):
-	if current_level >= 0 and current_level < 4:  # 只有4关可以解锁下一关
-		unlocked_levels[current_level + 1] = true
-		update_button_states()
-		# 保存解锁状态到配置文件或游戏存档
-		save_unlocked_levels()
+func unlock_next_level(current_level_completed_index: int): # 参数是刚完成的关卡的索引 (0-indexed)
+	# 确保要解锁的下一关卡的索引是有效的
+	if current_level_completed_index >= 0 and current_level_completed_index < (unlocked_levels.size() - 1):
+		var next_level_to_unlock_index = current_level_completed_index + 1
+		
+		# 在进行修改前，从文件加载最新的解锁状态
+		# 这很重要，因为此实例中的 'unlocked_levels' 数组可能已过时
+		# (如果它是一个新创建的实例，而不是来自场景树)。
+		load_unlocked_levels() 
+		
+		# 仅当下一关尚未解锁时才继续
+		if not unlocked_levels[next_level_to_unlock_index]:
+			unlocked_levels[next_level_to_unlock_index] = true
+			save_unlocked_levels() # 将修改后的 'unlocked_levels' 数组保存到文件
+		
+		# 仅当此脚本实例是活动场景树的一部分时，才尝试更新UI元素。
+		# 这可以防止在此函数被游离实例调用时出错 (例如，从LevelCompleteManager调用)。
+		if is_inside_tree():
+			update_button_states()
+
 
 func save_unlocked_levels():
 	# 在此处实现存档逻辑，例如使用ConfigFile
@@ -138,4 +206,6 @@ func load_unlocked_levels():
 	if err == OK:
 		for i in range(5):
 			unlocked_levels[i] = config.get_value("levels", "level" + str(i + 1) + "_unlocked", i == 0) # 默认只解锁第一关
-		update_button_states()
+	else:
+		# 确保第一关始终解锁
+		unlocked_levels[0] = true

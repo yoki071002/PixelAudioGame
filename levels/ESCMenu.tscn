@@ -1,13 +1,13 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqvb7vdxc3v4r"]
 
 [ext_resource type="Script" uid="uid://dkxgiuba804nc" path="res://scripts/UIMainMenu.gd" id="1_7m7ed"]
-[ext_resource type="Script" uid="uid://cj3ly1ir7uiwe" path="res://scripts/Intro+Loop.gd" id="2_acu4t"]
-[ext_resource type="AudioStream" uid="uid://dtjtnvsruulb5" path="res://Audio/Soundtrack/MS_Main_Intro.ogg" id="3_gytu2"]
-[ext_resource type="AudioStream" uid="uid://cv1crlxy3ptbl" path="res://Audio/Soundtrack/MS_Main_Loop.ogg" id="4_qnh34"]
-[ext_resource type="Texture2D" uid="uid://cbc3wtqt0rr4a" path="res://tileset/I Close My Eyes.png" id="5_qnh34"]
-[ext_resource type="Script" uid="uid://dck7tc4tkmvdb" path="res://scripts/ImageBlur.gd" id="6_lqkcq"]
+[ext_resource type="Script" path="res://scripts/Intro+Loop.gd" id="2_acu4t"]
+[ext_resource type="AudioStream" uid="uid://dpv6ssgvcy0b7" path="res://Audio/Soundtrack/MS_Main_Intro.ogg" id="3_gytu2"]
+[ext_resource type="AudioStream" uid="uid://cu7jo2f8hpi65" path="res://Audio/Soundtrack/MS_Main_Loop.ogg" id="4_qnh34"]
+[ext_resource type="Texture2D" uid="uid://b2045ktnsvekl" path="res://tileset/I Close My Eyes.png" id="5_qnh34"]
+[ext_resource type="Script" path="res://scripts/ImageBlur.gd" id="6_lqkcq"]
 
-[node name="Control" type="Control"]
+[node name="Control2" type="Control"]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15

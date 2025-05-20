@@ -113,3 +113,11 @@ theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
 text = "Level 5
 
 Press 5"
+
+[node name="CoinsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "Coin:"
+horizontal_alignment = 1
