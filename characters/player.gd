@@ -13,8 +13,8 @@ func _ready():
 	
 	# Pass references from level scene into BlindCane
 	blind_cane.tilemap = get_node("../TileMap")
-	blind_cane.clock = get_node("../../Clock")
-	blind_cane.tile_sound_manager = get_node("../../TilesoundController")
+	blind_cane.clock = get_node("../Clock")
+	blind_cane.tile_sound_manager = get_node("../TilesoundController")
 	blind_cane.player = self 
 
 	print("[Player] Passed references to BlindCane")
@@ -59,7 +59,7 @@ func die():
 	can_move = false
 
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://ESCMenu.tscn")
+	get_tree().change_scene_to_file("res://levels/ESCMenu.tscn")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
