@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 var tilemap: TileMap
 var can_move := true
+var ready_to_play := false
 
 func _ready():
 	tilemap = get_node(tilemap_node_path)
@@ -16,8 +17,11 @@ func _ready():
 	blind_cane.clock = get_node("../Clock")
 	blind_cane.tile_sound_manager = get_node("../TilesoundController")
 	blind_cane.player = self 
+	print("Resolved tilemap in Player.gd: ", get_node("../TileMap"))
 
 	print("[Player] Passed references to BlindCane")
+	
+	ready_to_play = true
 
 func _physics_process(delta):
 	# return if no movement allowed
@@ -55,7 +59,7 @@ func _physics_process(delta):
 				die()
 
 func die():
-	print("[Player] Stepped on lava. Died.")
+	print("[Player] Stepped on void. Died.")
 	can_move = false
 
 	await get_tree().create_timer(0.5).timeout
@@ -78,6 +82,9 @@ func _on_collision_shape_2d_child_exiting_tree(node: Node) -> void:
 
 # controls blind cane skill
 func _input(event):
+	if not ready_to_play:
+		return
+		
 	if event.is_action_pressed("blind_up"):
 		blind_cane.scan_tiles(Vector2.UP)
 	elif event.is_action_pressed("blind_down"):
