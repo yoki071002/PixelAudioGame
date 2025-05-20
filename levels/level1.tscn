@@ -10,10 +10,10 @@
 [ext_resource type="AudioStream" uid="uid://gx2m0whuotgl" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="8_045es"]
 [ext_resource type="AudioStream" uid="uid://f6ocw5yrd5em" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="9_omn1t"]
 [ext_resource type="AudioStream" uid="uid://bsqlrwbgxgwq8" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="10_lf3p4"]
+[ext_resource type="AudioStream" uid="uid://lkexcqdfba2s" path="res://Audio/Soundtrack/MS_LV1_Branch 1.ogg" id="12_f7u7y"]
 [ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_jq2cn"]
-[ext_resource type="AudioStream" uid="uid://dbx25cefx72bc" path="res://audio/Soundtrack/ogg/Level 1/Loop 1.ogg" id="13_a5s8o"]
-[ext_resource type="AudioStream" uid="uid://c74w2acyw438v" path="res://audio/Soundtrack/ogg/Level 1/Loop 2.ogg" id="14_ls4ot"]
-[ext_resource type="AudioStream" uid="uid://bji78g7tg6ree" path="res://audio/Soundtrack/ogg/Level 1/Loop 3.ogg" id="15_tx362"]
+[ext_resource type="AudioStream" uid="uid://b4f5e71etpo31" path="res://Audio/Soundtrack/MS_LV1_Branch 2.ogg" id="13_jq2cn"]
+[ext_resource type="AudioStream" uid="uid://bcnmyda64tpxn" path="res://Audio/Soundtrack/MS_LV1_Branch 3.ogg" id="14_a5s8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -78,7 +78,7 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="Layer1" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("12_jq2cn")
-audio_clip = ExtResource("13_a5s8o")
+audio_clip = ExtResource("12_f7u7y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer1"]
 shape = SubResource("RectangleShape2D_lf3p4")
@@ -87,7 +87,7 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="Layer2" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("12_jq2cn")
-audio_clip = ExtResource("14_ls4ot")
+audio_clip = ExtResource("13_jq2cn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2"]
 position = Vector2(0, -80)
@@ -97,7 +97,7 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="Layer3" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("12_jq2cn")
-audio_clip = ExtResource("15_tx362")
+audio_clip = ExtResource("14_a5s8o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer3"]
 position = Vector2(80, -80)
