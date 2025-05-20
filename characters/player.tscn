@@ -25,7 +25,5 @@ shape = SubResource("RectangleShape2D_65n15")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-<<<<<<< HEAD
 [node name="Clock" type="Node2D" parent="."]
 script = ExtResource("4_x0jl3")
-=======
