@@ -7,17 +7,33 @@ extends Node
 # create dictionary to match sound path by tile id
 var tile_sounds := {
 	# id=3: end
-	3: preload("res://Audio/SFX/SFX_Win.wav"),
+	3: preload("res://Audio/SFX/SFX_Detect_Win.wav"),
 	# id=6: path
 	6: preload("res://Audio/SFX/SFX_Detect_Road.wav"),
 	# id=9: void
 	9: preload("res://Audio/SFX/SFX_Detect_Die.wav")
 }
 
-func play_tile_sound_at(position: Vector2):
-	var coords = tilemap.local_to_map(position)
-	var tile_id = tilemap.get_cell_source_id(0, coords)
+# Main method used in BlindCane.gd for tile-based scanning
+func play_tile_sound_at(tile_coords: Vector2i):
+	var tile_id = tilemap.get_cell_source_id(0, tile_coords)
 
 	if tile_sounds.has(tile_id):
-		audio_player.stream = tile_sounds[tile_id]
-		audio_player.play()
+		var stream = tile_sounds[tile_id]
+		_play_one_shot(stream)
+
+# More generic sound playback method (used for NPC detection)
+func play(path: String):
+	var stream = load(path)
+	if stream:
+		_play_one_shot(stream)
+	else:
+		push_error("TilesoundController: Failed to load sound: " + path)
+
+# Core helper method for one-shot audio playback
+func _play_one_shot(stream: AudioStream):
+	var player = AudioStreamPlayer2D.new()
+	player.stream = stream
+	add_child(player)
+	player.play()
+	player.connect("finished", Callable(player, "queue_free"))

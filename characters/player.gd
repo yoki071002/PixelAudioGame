@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 var tilemap: TileMap
 var can_move := true
+var ready_to_play := false
 
 func _ready():
 	# 延迟引用设置，以确保场景树完全准备好
@@ -47,8 +48,11 @@ func _setup_player_references():
 		printerr("[Player] _setup_player_references: TilesoundController for BlindCane not found or invalid at path '../TilesoundController'")
 
 	blind_cane.player = self 
+	print("Resolved tilemap in Player.gd: ", get_node("../TileMap"))
 
-	print("[Player] Passed references to BlindCane (deferred)")
+	print("[Player] Passed references to BlindCane")
+	
+	ready_to_play = true
 
 func _physics_process(delta):
 	# return if no movement allowed
@@ -163,10 +167,9 @@ func _on_collision_shape_2d_child_exiting_tree(node: Node) -> void:
 
 # controls blind cane skill
 func _input(event):
-	# 确保 blind_cane 有效才调用其方法
-	if not is_instance_valid(blind_cane):
+	if not ready_to_play:
 		return
-
+		
 	if event.is_action_pressed("blind_up"):
 		blind_cane.scan_tiles(Vector2.UP)
 	elif event.is_action_pressed("blind_down"):

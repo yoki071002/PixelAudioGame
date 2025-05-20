@@ -36,8 +36,10 @@ script = ExtResource("4_w8ofq")
 [node name="SFXController" type="Node" parent="."]
 script = ExtResource("6_s0tuf")
 
-[node name="TilesoundController" type="Node2D" parent="."]
+[node name="TilesoundController" type="Node2D" parent="." node_paths=PackedStringArray("tilemap", "audio_player")]
 script = ExtResource("6_fjysh")
+tilemap = NodePath("../TileMap")
+audio_player = NodePath("../AudioStreamPlayer2D")
 
 [node name="L2V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
