@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://i4un1bhbwu03"]
+[gd_scene load_steps=10 format=3 uid="uid://i4un1bhbwu03"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_y18d6"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_vobc4"]
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_52hkl"]
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_gw0q8"]
-[ext_resource type="Script" uid="uid://fkf0e2tptgjo" path="res://scripts/AudioManager.gd" id="5_33jjl"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_ooqki"]
 [ext_resource type="Script" uid="uid://1o7chjv6k0u0" path="res://scripts/InteractiveMusicController.gd" id="7_nv45w"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_lt1p8"]
@@ -22,6 +21,8 @@ layer_0/tile_data = PackedInt32Array(-65536, 6, 0, -131072, 6, 0, -196608, 6, 0,
 
 [node name="Player" parent="." instance=ExtResource("2_vobc4")]
 position = Vector2(8, -8)
+tile_size = 16
+tilemap_node_path = NodePath("../TileMap")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -29,9 +30,6 @@ script = ExtResource("3_52hkl")
 
 [node name="Clock" type="Node" parent="."]
 script = ExtResource("4_gw0q8")
-
-[node name="AudioManager" type="Node" parent="."]
-script = ExtResource("5_33jjl")
 
 [node name="SFXController" type="Node" parent="."]
 script = ExtResource("6_ooqki")
