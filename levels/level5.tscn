@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://i4un1bhbwu03"]
+[gd_scene load_steps=14 format=3 uid="uid://i4un1bhbwu03"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_y18d6"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_vobc4"]
@@ -7,7 +7,11 @@
 [ext_resource type="Script" uid="uid://7t367kp6rptu" path="res://scripts/TilesoundController.gd" id="6_dm5g0"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_ooqki"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_lt1p8"]
+[ext_resource type="Texture2D" uid="uid://btng03bos0nkb" path="res://tileset/Siren.png" id="9_1oekh"]
+[ext_resource type="Texture2D" uid="uid://dphq38bjshyva" path="res://tileset/Siren_Singing_Range.png" id="10_d4v0i"]
+[ext_resource type="Texture2D" uid="uid://r8tqfcbcvldo" path="res://tileset/Ghost.png" id="11_upukb"]
 [ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_8380d"]
+[ext_resource type="Texture2D" uid="uid://blvm4x4pgs1la" path="res://tileset/Ghost_Attack_Range.png" id="12_y18d6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -91,6 +95,265 @@ script = ExtResource("12_8380d")
 position = Vector2(80, -80)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
+
+[node name="Siren" type="Sprite2D" parent="."]
+position = Vector2(8, -104)
+rotation = -1.5708
+texture = ExtResource("9_1oekh")
+
+[node name="SirenSingingRange" type="Sprite2D" parent="Siren"]
+position = Vector2(0, 16)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange2" type="Sprite2D" parent="Siren"]
+position = Vector2(0, 32)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange3" type="Sprite2D" parent="Siren"]
+position = Vector2(0, 48)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange4" type="Sprite2D" parent="Siren"]
+position = Vector2(0, 64)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange5" type="Sprite2D" parent="Siren"]
+position = Vector2(0, 80)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange6" type="Sprite2D" parent="Siren"]
+position = Vector2(0, 96)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange7" type="Sprite2D" parent="Siren"]
+position = Vector2(0, 112)
+texture = ExtResource("10_d4v0i")
+
+[node name="Siren2" type="Sprite2D" parent="."]
+position = Vector2(24, -88)
+rotation = -1.5708
+texture = ExtResource("9_1oekh")
+
+[node name="SirenSingingRange" type="Sprite2D" parent="Siren2"]
+position = Vector2(0, 16)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange2" type="Sprite2D" parent="Siren2"]
+position = Vector2(0, 32)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange3" type="Sprite2D" parent="Siren2"]
+position = Vector2(0, 48)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange4" type="Sprite2D" parent="Siren2"]
+position = Vector2(0, 64)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange5" type="Sprite2D" parent="Siren2"]
+position = Vector2(0, 80)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange6" type="Sprite2D" parent="Siren2"]
+position = Vector2(0, 96)
+texture = ExtResource("10_d4v0i")
+
+[node name="Siren3" type="Sprite2D" parent="."]
+position = Vector2(40, -72)
+rotation = -1.5708
+texture = ExtResource("9_1oekh")
+
+[node name="SirenSingingRange" type="Sprite2D" parent="Siren3"]
+position = Vector2(0, 16)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange2" type="Sprite2D" parent="Siren3"]
+position = Vector2(0, 32)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange3" type="Sprite2D" parent="Siren3"]
+position = Vector2(0, 48)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange4" type="Sprite2D" parent="Siren3"]
+position = Vector2(0, 64)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange5" type="Sprite2D" parent="Siren3"]
+position = Vector2(0, 80)
+texture = ExtResource("10_d4v0i")
+
+[node name="Siren4" type="Sprite2D" parent="."]
+position = Vector2(56, -104)
+rotation = -1.5708
+texture = ExtResource("9_1oekh")
+
+[node name="SirenSingingRange" type="Sprite2D" parent="Siren4"]
+position = Vector2(0, 16)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange2" type="Sprite2D" parent="Siren4"]
+position = Vector2(0, 32)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange3" type="Sprite2D" parent="Siren4"]
+position = Vector2(0, 48)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange4" type="Sprite2D" parent="Siren4"]
+position = Vector2(0, 64)
+texture = ExtResource("10_d4v0i")
+
+[node name="Siren5" type="Sprite2D" parent="."]
+position = Vector2(72, -88)
+rotation = -1.5708
+texture = ExtResource("9_1oekh")
+
+[node name="SirenSingingRange" type="Sprite2D" parent="Siren5"]
+position = Vector2(0, 16)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange2" type="Sprite2D" parent="Siren5"]
+position = Vector2(0, 32)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange3" type="Sprite2D" parent="Siren5"]
+position = Vector2(0, 48)
+texture = ExtResource("10_d4v0i")
+
+[node name="Siren6" type="Sprite2D" parent="."]
+position = Vector2(88, -72)
+rotation = -1.5708
+texture = ExtResource("9_1oekh")
+
+[node name="SirenSingingRange" type="Sprite2D" parent="Siren6"]
+position = Vector2(0, 16)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange2" type="Sprite2D" parent="Siren6"]
+position = Vector2(0, 32)
+texture = ExtResource("10_d4v0i")
+
+[node name="Siren7" type="Sprite2D" parent="."]
+position = Vector2(104, -88)
+texture = ExtResource("9_1oekh")
+
+[node name="SirenSingingRange" type="Sprite2D" parent="Siren7"]
+position = Vector2(0, 16)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange2" type="Sprite2D" parent="Siren7"]
+position = Vector2(0, 32)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange3" type="Sprite2D" parent="Siren7"]
+position = Vector2(0, 48)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange4" type="Sprite2D" parent="Siren7"]
+position = Vector2(0, 64)
+texture = ExtResource("10_d4v0i")
+
+[node name="SirenSingingRange5" type="Sprite2D" parent="Siren7"]
+position = Vector2(0, 80)
+texture = ExtResource("10_d4v0i")
+
+[node name="Ghost" type="Sprite2D" parent="."]
+position = Vector2(72, -40)
+texture = ExtResource("11_upukb")
+
+[node name="GhostAttackRange" type="Sprite2D" parent="Ghost"]
+position = Vector2(-16, 0)
+rotation = 1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="GhostAttackRange2" type="Sprite2D" parent="Ghost"]
+position = Vector2(16, 0)
+rotation = -1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="Ghost2" type="Sprite2D" parent="."]
+position = Vector2(72, -24)
+texture = ExtResource("11_upukb")
+
+[node name="GhostAttackRange" type="Sprite2D" parent="Ghost2"]
+position = Vector2(-16, 0)
+rotation = 1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="GhostAttackRange2" type="Sprite2D" parent="Ghost2"]
+position = Vector2(16, 0)
+rotation = -1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="Ghost3" type="Sprite2D" parent="."]
+position = Vector2(72, -8)
+texture = ExtResource("11_upukb")
+
+[node name="GhostAttackRange" type="Sprite2D" parent="Ghost3"]
+position = Vector2(-16, 0)
+rotation = 1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="GhostAttackRange2" type="Sprite2D" parent="Ghost3"]
+position = Vector2(16, 0)
+rotation = -1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="Ghost4" type="Sprite2D" parent="."]
+position = Vector2(104, -40)
+texture = ExtResource("11_upukb")
+
+[node name="GhostAttackRange" type="Sprite2D" parent="Ghost4"]
+position = Vector2(-16, 0)
+rotation = 1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="GhostAttackRange2" type="Sprite2D" parent="Ghost4"]
+position = Vector2(16, 0)
+rotation = -1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="Ghost5" type="Sprite2D" parent="."]
+position = Vector2(104, -24)
+texture = ExtResource("11_upukb")
+
+[node name="GhostAttackRange" type="Sprite2D" parent="Ghost5"]
+position = Vector2(-16, 0)
+rotation = 1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="GhostAttackRange2" type="Sprite2D" parent="Ghost5"]
+position = Vector2(16, 0)
+rotation = -1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="Ghost6" type="Sprite2D" parent="."]
+position = Vector2(104, -8)
+texture = ExtResource("11_upukb")
+
+[node name="GhostAttackRange" type="Sprite2D" parent="Ghost6"]
+position = Vector2(-16, 0)
+rotation = 1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="GhostAttackRange2" type="Sprite2D" parent="Ghost6"]
+position = Vector2(16, 0)
+rotation = -1.5708
+texture = ExtResource("12_y18d6")
+
+[node name="Ghost7" type="Sprite2D" parent="."]
+position = Vector2(8, -40)
+texture = ExtResource("11_upukb")
+
+[node name="GhostAttackRange" type="Sprite2D" parent="Ghost7"]
+position = Vector2(0, 16)
+texture = ExtResource("12_y18d6")
+
+[node name="GhostAttackRange2" type="Sprite2D" parent="Ghost7"]
+position = Vector2(16, 0)
+rotation = -1.5708
+texture = ExtResource("12_y18d6")
 
 [connection signal="body_entered" from="L1V1" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="L1V1" to="Player" method="_on_area_2d_body_exited"]
