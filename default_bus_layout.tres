@@ -2,7 +2,8 @@
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
 resource_name = "Reverb"
-wet = 0.02
+room_size = 0.33
+wet = 0.01
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectReverb_j3pel")

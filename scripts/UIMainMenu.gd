@@ -13,6 +13,7 @@ var audio_player = AudioStreamPlayer.new()
 var ui_sound
 
 func _ready():
+	
 	# 连接按钮信号
 	exit_menu_button.pressed.connect(_on_exit_menu_pressed)
 	select_level_button.pressed.connect(_on_select_level_pressed)

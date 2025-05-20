@@ -2,7 +2,7 @@ extends Control
 
 func _ready():
 	# 默认情况下隐藏菜单
-	visible = false
+	visible = true
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 
 func _input(event):
