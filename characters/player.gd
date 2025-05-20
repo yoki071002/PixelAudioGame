@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var tile_size := 16
 @export var tilemap_node_path := NodePath("../TileMap")
 @onready var blind_cane = $BlindCane
+@onready var audio_player = $AudioPlayer
 
 var tilemap: TileMap
 var can_move := true
@@ -110,7 +111,10 @@ func die():
 	print("[Player] Stepped on lava. Died.")
 	can_move = false
 
-	await get_tree().create_timer(0.5).timeout
+	audio_player.stream = load("res://Audio/SFX/SFX_Die.wav")
+	audio_player.play()
+
+	await audio_player.finished
 	get_tree().change_scene_to_file("res://levels/ESCMenu.tscn")
 
 # 玩家胜利
@@ -119,12 +123,16 @@ func win():
 	print("[Player] Stepped on victory tile. Won!")
 	can_move = false
 	
+	audio_player.stream = load("res://Audio/SFX/SFX_Win.wav")
+	audio_player.play()
+	
 	var level_complete_manager = find_level_complete_manager()
 	if is_instance_valid(level_complete_manager):
+		await audio_player.finished
 		level_complete_manager.complete_level()
 	else:
 		printerr("[Player] win: LevelCompleteManager is invalid or not found!")
-		await get_tree().create_timer(0.5).timeout
+		await audio_player.finished
 		get_tree().change_scene_to_file("res://levels/level_select.tscn")
 
 # 查找场景中的LevelCompleteManager
