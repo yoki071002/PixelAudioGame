@@ -29,6 +29,3 @@ shape = SubResource("RectangleShape2D_65n15")
 [node name="Clock" type="Node2D" parent="."]
 script = ExtResource("4_x0jl3")
 =======
-[node name="BlindCane" type="Node2D" parent="."]
-script = ExtResource("3_vb825")
->>>>>>> 85889777c2efcbfc9f9f18a4bbe6e0f0f194f7ea
