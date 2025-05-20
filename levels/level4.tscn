@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://vv3nv6e47uwu"]
+[gd_scene load_steps=16 format=3 uid="uid://vv3nv6e47uwu"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_yruw8"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_1c06p"]
@@ -6,15 +6,11 @@
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_lrvx3"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_21lkn"]
 [ext_resource type="Script" uid="uid://7t367kp6rptu" path="res://scripts/TilesoundController.gd" id="6_lrvx3"]
+[ext_resource type="AudioStream" uid="uid://bvlk023me0yle" path="res://Audio/Narration/Ogg/Vo_L4V1.ogg" id="8_47a12"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_efk67"]
-[ext_resource type="AudioStream" uid="uid://gx2m0whuotgl" path="res://Audio/Narration/Ogg/Vo_L1V1.ogg" id="9_ok0nw"]
-[ext_resource type="AudioStream" uid="uid://f6ocw5yrd5em" path="res://Audio/Narration/Ogg/Vo_L1V2.ogg" id="10_g2luv"]
-[ext_resource type="AudioStream" uid="uid://bsqlrwbgxgwq8" path="res://Audio/Narration/Ogg/Vo_L1V3.ogg" id="11_um8t4"]
-[ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_jyx7s"]
-[ext_resource type="AudioStream" uid="uid://dbx25cefx72bc" path="res://Audio/Soundtrack/ogg/Level 1/Loop 1.ogg" id="13_kxe21"]
-[ext_resource type="AudioStream" uid="uid://c74w2acyw438v" path="res://Audio/Soundtrack/ogg/Level 1/Loop 2.ogg" id="14_m1yk4"]
+[ext_resource type="AudioStream" uid="uid://cclfsxnc8qojo" path="res://Audio/Narration/Ogg/Vo_L4V2.ogg" id="9_yruw8"]
+[ext_resource type="AudioStream" uid="uid://c2ywj6me2kqhv" path="res://Audio/Soundtrack/MS_LV4_Loop.ogg" id="14_1c06p"]
 [ext_resource type="Texture2D" uid="uid://btng03bos0nkb" path="res://tileset/Siren.png" id="15_lrvx3"]
-[ext_resource type="AudioStream" uid="uid://bji78g7tg6ree" path="res://Audio/Soundtrack/ogg/Level 1/Loop 3.ogg" id="15_nieve"]
 [ext_resource type="Texture2D" uid="uid://dphq38bjshyva" path="res://tileset/Siren_Singing_Range.png" id="16_0halg"]
 [ext_resource type="Texture2D" uid="uid://r8tqfcbcvldo" path="res://tileset/Ghost.png" id="17_21lkn"]
 [ext_resource type="Texture2D" uid="uid://blvm4x4pgs1la" path="res://tileset/Ghost_Attack_Range.png" id="18_im0iu"]
@@ -47,64 +43,24 @@ script = ExtResource("6_lrvx3")
 tilemap = NodePath("../TileMap")
 audio_player = NodePath("../AudioStreamPlayer2D")
 
-[node name="L1V1" type="Area2D" parent="."]
+[node name="L4V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("8_efk67")
-audio_clip = ExtResource("9_ok0nw")
+audio_clip = ExtResource("8_47a12")
 audio_type = "\"narration\""
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="L1V1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L4V1"]
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
-[node name="L1V2" type="Area2D" parent="."]
+[node name="L4V2" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("8_efk67")
-audio_clip = ExtResource("10_g2luv")
+audio_clip = ExtResource("9_yruw8")
 audio_type = "\"narration\""
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="L1V2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L4V2"]
 position = Vector2(0, -80)
-shape = SubResource("RectangleShape2D_lf3p4")
-debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
-
-[node name="L1V3" type="Area2D" parent="."]
-position = Vector2(8, -8)
-script = ExtResource("8_efk67")
-audio_clip = ExtResource("11_um8t4")
-audio_type = "\"narration\""
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="L1V3"]
-position = Vector2(80, -80)
-shape = SubResource("RectangleShape2D_lf3p4")
-debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
-
-[node name="Layer1" type="Area2D" parent="."]
-position = Vector2(8, -8)
-script = ExtResource("12_jyx7s")
-audio_clip = ExtResource("13_kxe21")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer1"]
-shape = SubResource("RectangleShape2D_lf3p4")
-debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
-
-[node name="Layer2" type="Area2D" parent="."]
-position = Vector2(8, -8)
-script = ExtResource("12_jyx7s")
-audio_clip = ExtResource("14_m1yk4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2"]
-position = Vector2(0, -80)
-shape = SubResource("RectangleShape2D_lf3p4")
-debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
-
-[node name="Layer3" type="Area2D" parent="."]
-position = Vector2(8, -8)
-script = ExtResource("12_jyx7s")
-audio_clip = ExtResource("15_nieve")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer3"]
-position = Vector2(80, -80)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
@@ -233,28 +189,14 @@ rotation = 3.14159
 texture = ExtResource("18_im0iu")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_1c06p")
+autoplay = true
 
-[connection signal="body_entered" from="L1V1" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="L1V1" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="child_entered_tree" from="L1V1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="child_exiting_tree" from="L1V1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
-[connection signal="body_entered" from="L1V2" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="L1V2" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="child_entered_tree" from="L1V2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="child_exiting_tree" from="L1V2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
-[connection signal="body_entered" from="L1V3" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="L1V3" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="child_entered_tree" from="L1V3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="child_exiting_tree" from="L1V3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
-[connection signal="body_entered" from="Layer1" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Layer1" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="child_entered_tree" from="Layer1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Layer1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
-[connection signal="body_entered" from="Layer2" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Layer2" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="child_entered_tree" from="Layer2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Layer2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
-[connection signal="body_entered" from="Layer3" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Layer3" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="child_entered_tree" from="Layer3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Layer3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
+[connection signal="body_entered" from="L4V1" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="L4V1" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="child_entered_tree" from="L4V1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="L4V1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
+[connection signal="body_entered" from="L4V2" to="Player" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="L4V2" to="Player" method="_on_area_2d_body_exited"]
+[connection signal="child_entered_tree" from="L4V2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
+[connection signal="child_exiting_tree" from="L4V2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
