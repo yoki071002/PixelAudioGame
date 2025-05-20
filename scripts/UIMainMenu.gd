@@ -39,8 +39,6 @@ func _input(event):
 	# 键盘快捷键处理
 	if event is InputEventKey and event.pressed:
 		match event.keycode:
-			KEY_ESCAPE:
-				_on_exit_menu_pressed()
 			KEY_1:
 				_on_select_level_pressed()
 			KEY_2:
@@ -52,14 +50,24 @@ func _input(event):
 			KEY_W:
 				if event.ctrl_pressed or event.cmd_pressed:
 					_on_quit_game_pressed()
+	# 注意：ESC键处理已移至全局ESCMenuController
 
 func _on_exit_menu_pressed():
 	print("退出菜单")
 	get_tree().paused = false
-	get_parent().visible = false
+	# 使用全局控制器关闭菜单
+	if has_node("/root/ESCMenuController"):
+		get_node("/root/ESCMenuController").close_menu()
+	else:
+		# 向后兼容的处理
+		get_parent().visible = false
 
 func _on_select_level_pressed():
 	print("重新开始并选择关卡")
+	# 关闭菜单并取消暂停
+	get_tree().paused = false
+	if has_node("/root/ESCMenuController"):
+		get_node("/root/ESCMenuController").close_menu()
 	# 转到关卡选择菜单
 	get_tree().change_scene_to_file("res://levels/level_select.tscn")
 
