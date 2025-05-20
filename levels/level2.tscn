@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bydg4l6ith3qx"]
+[gd_scene load_steps=17 format=3 uid="uid://bydg4l6ith3qx"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_qegch"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_jai45"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://r8tqfcbcvldo" path="res://tileset/Ghost.png" id="11_fjysh"]
 [ext_resource type="Texture2D" uid="uid://blvm4x4pgs1la" path="res://tileset/Ghost_Attack_Range.png" id="12_bcewn"]
 [ext_resource type="Script" uid="uid://cn5j8adckckb0" path="res://scripts/LevelCompleteManager.gd" id="12_fjysh"]
+[ext_resource type="Script" uid="uid://cj3ly1ir7uiwe" path="res://scripts/Intro+Loop.gd" id="13_qegch"]
+[ext_resource type="AudioStream" uid="uid://ca5vp10k2h5v2" path="res://Audio/Soundtrack/MS_LV2_Intro.ogg" id="14_jai45"]
+[ext_resource type="AudioStream" uid="uid://bkemoe85iugtj" path="res://Audio/Soundtrack/MS_LV2_Loop.ogg" id="15_jj0ry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -57,7 +60,7 @@ audio_clip = ExtResource("9_fjysh")
 audio_type = "\"narration\""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L2V2"]
-position = Vector2(0, -80)
+position = Vector2(16, -16)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
@@ -132,6 +135,11 @@ texture = ExtResource("12_bcewn")
 
 [node name="LevelComplete" type="Node" parent="."]
 script = ExtResource("12_fjysh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("13_qegch")
+first_clip = ExtResource("14_jai45")
+second_clip = ExtResource("15_jj0ry")
 
 [connection signal="body_entered" from="L2V1" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="L2V1" to="Player" method="_on_area_2d_body_exited"]
