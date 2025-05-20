@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://chb2ddy30g3oj"]
+[gd_scene load_steps=2 format=3 uid="uid://chb2ddy30g3oj"]
 
-[ext_resource type="Script" uid="uid://c83cubbb5sdp6" path="res://scripts/ESCMenuController.gd" id="1_7m7ed"]
 [ext_resource type="Script" uid="uid://dkxgiuba804nc" path="res://scripts/UIMainMenu.gd" id="2_7m7ed"]
 
 [node name="MainMenu" type="Control"]
@@ -11,7 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7m7ed")
 
 [node name="Panel" type="Panel" parent="."]
 process_mode = 3
