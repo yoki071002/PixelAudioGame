@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=18 format=3 uid="uid://i4un1bhbwu03"]
+=======
+[gd_scene load_steps=10 format=3 uid="uid://i4un1bhbwu03"]
+>>>>>>> parent of e1388ea (added level 5 mobs)
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_y18d6"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_vobc4"]
@@ -6,7 +10,10 @@
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_gw0q8"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_ooqki"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_lt1p8"]
+<<<<<<< HEAD
 [ext_resource type="AudioStream" uid="uid://dj4wyhls7msm8" path="res://Audio/SFX/SFX_Detect_Die.wav" id="9_vp6pq"]
+=======
+>>>>>>> parent of e1388ea (added level 5 mobs)
 [ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_8380d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
@@ -111,6 +118,7 @@ position = Vector2(80, -80)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
+<<<<<<< HEAD
 [node name="Void" type="Area2D" parent="."]
 position = Vector2(0, -1)
 script = ExtResource("8_lt1p8")
@@ -152,6 +160,8 @@ shape = SubResource("RectangleShape2D_vobc4")
 position = Vector2(72, -135)
 shape = SubResource("RectangleShape2D_52hkl")
 
+=======
+>>>>>>> parent of e1388ea (added level 5 mobs)
 [connection signal="body_entered" from="L1V1" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="L1V1" to="Player" method="_on_area_2d_body_exited"]
 [connection signal="child_entered_tree" from="L1V1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
