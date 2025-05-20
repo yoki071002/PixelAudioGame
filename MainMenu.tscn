@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://csapw4k15jcus"]
 
-[ext_resource type="Script" path="res://scripts/ESCMenuController.gd" id="1_7m7ed"]
-[ext_resource type="Script" path="res://scripts/UIMainMenu.gd" id="2_7m7ed"]
+[ext_resource type="Script" uid="uid://c83cubbb5sdp6" path="res://scripts/ESCMenuController.gd" id="1_7m7ed"]
+[ext_resource type="Script" uid="uid://dkxgiuba804nc" path="res://scripts/UIMainMenu.gd" id="2_7m7ed"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 3
@@ -23,6 +23,8 @@ offset_left = 36.0
 offset_top = 40.0
 offset_right = -35.0
 offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
@@ -102,4 +104,4 @@ text = "退出游戏
 按
 Control
 或
-Command W" 
+Command W"

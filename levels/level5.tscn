@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://i4un1bhbwu03"]
+[gd_scene load_steps=16 format=3 uid="uid://i4un1bhbwu03"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_y18d6"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_vobc4"]
@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://btng03bos0nkb" path="res://tileset/Siren.png" id="9_1oekh"]
 [ext_resource type="Texture2D" uid="uid://dphq38bjshyva" path="res://tileset/Siren_Singing_Range.png" id="10_d4v0i"]
 [ext_resource type="Texture2D" uid="uid://r8tqfcbcvldo" path="res://tileset/Ghost.png" id="11_upukb"]
-[ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_8380d"]
 [ext_resource type="Texture2D" uid="uid://blvm4x4pgs1la" path="res://tileset/Ghost_Attack_Range.png" id="12_y18d6"]
+[ext_resource type="Texture2D" uid="uid://cs83djq0jk1dn" path="res://tileset/Bullet.png" id="13_y18d6"]
+[ext_resource type="Script" uid="uid://gk50n3vjpv0u" path="res://scripts/Sniper.gd" id="14_vobc4"]
+[ext_resource type="AudioStream" uid="uid://qt6w4k3ay8us" path="res://Audio/SFX/SFX_Bullet_Explode.wav" id="15_52hkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -70,33 +72,7 @@ position = Vector2(80, -80)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
-[node name="Layer1" type="Area2D" parent="."]
-position = Vector2(8, -8)
-script = ExtResource("12_8380d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer1"]
-shape = SubResource("RectangleShape2D_lf3p4")
-debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
-
-[node name="Layer2" type="Area2D" parent="."]
-position = Vector2(8, -8)
-script = ExtResource("12_8380d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2"]
-position = Vector2(0, -80)
-shape = SubResource("RectangleShape2D_lf3p4")
-debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
-
-[node name="Layer3" type="Area2D" parent="."]
-position = Vector2(8, -8)
-script = ExtResource("12_8380d")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer3"]
-position = Vector2(80, -80)
-shape = SubResource("RectangleShape2D_lf3p4")
-debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
-
-[node name="Siren" type="Sprite2D" parent="."]
+[node name="Siren" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(8, -104)
 rotation = -1.5708
 texture = ExtResource("9_1oekh")
@@ -129,7 +105,7 @@ texture = ExtResource("10_d4v0i")
 position = Vector2(0, 112)
 texture = ExtResource("10_d4v0i")
 
-[node name="Siren2" type="Sprite2D" parent="."]
+[node name="Siren2" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(24, -88)
 rotation = -1.5708
 texture = ExtResource("9_1oekh")
@@ -158,7 +134,7 @@ texture = ExtResource("10_d4v0i")
 position = Vector2(0, 96)
 texture = ExtResource("10_d4v0i")
 
-[node name="Siren3" type="Sprite2D" parent="."]
+[node name="Siren3" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(40, -72)
 rotation = -1.5708
 texture = ExtResource("9_1oekh")
@@ -183,7 +159,7 @@ texture = ExtResource("10_d4v0i")
 position = Vector2(0, 80)
 texture = ExtResource("10_d4v0i")
 
-[node name="Siren4" type="Sprite2D" parent="."]
+[node name="Siren4" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(56, -104)
 rotation = -1.5708
 texture = ExtResource("9_1oekh")
@@ -204,7 +180,7 @@ texture = ExtResource("10_d4v0i")
 position = Vector2(0, 64)
 texture = ExtResource("10_d4v0i")
 
-[node name="Siren5" type="Sprite2D" parent="."]
+[node name="Siren5" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(72, -88)
 rotation = -1.5708
 texture = ExtResource("9_1oekh")
@@ -221,7 +197,7 @@ texture = ExtResource("10_d4v0i")
 position = Vector2(0, 48)
 texture = ExtResource("10_d4v0i")
 
-[node name="Siren6" type="Sprite2D" parent="."]
+[node name="Siren6" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(88, -72)
 rotation = -1.5708
 texture = ExtResource("9_1oekh")
@@ -234,7 +210,7 @@ texture = ExtResource("10_d4v0i")
 position = Vector2(0, 32)
 texture = ExtResource("10_d4v0i")
 
-[node name="Siren7" type="Sprite2D" parent="."]
+[node name="Siren7" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(104, -88)
 texture = ExtResource("9_1oekh")
 
@@ -258,7 +234,7 @@ texture = ExtResource("10_d4v0i")
 position = Vector2(0, 80)
 texture = ExtResource("10_d4v0i")
 
-[node name="Ghost" type="Sprite2D" parent="."]
+[node name="Ghost" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(72, -40)
 texture = ExtResource("11_upukb")
 
@@ -272,7 +248,7 @@ position = Vector2(16, 0)
 rotation = -1.5708
 texture = ExtResource("12_y18d6")
 
-[node name="Ghost2" type="Sprite2D" parent="."]
+[node name="Ghost2" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(72, -24)
 texture = ExtResource("11_upukb")
 
@@ -286,7 +262,7 @@ position = Vector2(16, 0)
 rotation = -1.5708
 texture = ExtResource("12_y18d6")
 
-[node name="Ghost3" type="Sprite2D" parent="."]
+[node name="Ghost3" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(72, -8)
 texture = ExtResource("11_upukb")
 
@@ -300,7 +276,7 @@ position = Vector2(16, 0)
 rotation = -1.5708
 texture = ExtResource("12_y18d6")
 
-[node name="Ghost4" type="Sprite2D" parent="."]
+[node name="Ghost4" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(104, -40)
 texture = ExtResource("11_upukb")
 
@@ -314,7 +290,7 @@ position = Vector2(16, 0)
 rotation = -1.5708
 texture = ExtResource("12_y18d6")
 
-[node name="Ghost5" type="Sprite2D" parent="."]
+[node name="Ghost5" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(104, -24)
 texture = ExtResource("11_upukb")
 
@@ -328,7 +304,7 @@ position = Vector2(16, 0)
 rotation = -1.5708
 texture = ExtResource("12_y18d6")
 
-[node name="Ghost6" type="Sprite2D" parent="."]
+[node name="Ghost6" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(104, -8)
 texture = ExtResource("11_upukb")
 
@@ -342,7 +318,7 @@ position = Vector2(16, 0)
 rotation = -1.5708
 texture = ExtResource("12_y18d6")
 
-[node name="Ghost7" type="Sprite2D" parent="."]
+[node name="Ghost7" type="Sprite2D" parent="." groups=["enemy"]]
 position = Vector2(8, -40)
 texture = ExtResource("11_upukb")
 
@@ -354,6 +330,17 @@ texture = ExtResource("12_y18d6")
 position = Vector2(16, 0)
 rotation = -1.5708
 texture = ExtResource("12_y18d6")
+
+[node name="Bullet" type="Sprite2D" parent="." node_paths=PackedStringArray("tilemap", "tile_sound_manager", "clock")]
+visible = false
+position = Vector2(136, -104)
+texture = ExtResource("13_y18d6")
+script = ExtResource("14_vobc4")
+player_path = NodePath("../Player")
+audio_clip = ExtResource("15_52hkl")
+tilemap = NodePath("../TileMap")
+tile_sound_manager = NodePath("../TilesoundController")
+clock = NodePath("../Clock")
 
 [connection signal="body_entered" from="L1V1" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="L1V1" to="Player" method="_on_area_2d_body_exited"]
@@ -367,15 +354,3 @@ texture = ExtResource("12_y18d6")
 [connection signal="body_exited" from="L1V3" to="Player" method="_on_area_2d_body_exited"]
 [connection signal="child_entered_tree" from="L1V3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
 [connection signal="child_exiting_tree" from="L1V3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
-[connection signal="body_entered" from="Layer1" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Layer1" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="child_entered_tree" from="Layer1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Layer1/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
-[connection signal="body_entered" from="Layer2" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Layer2" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="child_entered_tree" from="Layer2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Layer2/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
-[connection signal="body_entered" from="Layer3" to="Player" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Layer3" to="Player" method="_on_area_2d_body_exited"]
-[connection signal="child_entered_tree" from="Layer3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Layer3/CollisionShape2D" to="Player" method="_on_collision_shape_2d_child_exiting_tree"]
