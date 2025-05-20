@@ -81,7 +81,7 @@ func _input(event):
 func _on_exit_menu_pressed():
 	print("返回主菜单")
 	# 回到主菜单
-	get_tree().change_scene_to_file("res://MainMenu.tscn")
+	get_tree().change_scene_to_file("res://levels/ESCMenu.tscn")
 
 func _on_level_button_pressed(level_index):
 	if unlocked_levels[level_index]:

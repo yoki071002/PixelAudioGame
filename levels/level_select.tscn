@@ -59,9 +59,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
-text = "返回主菜单
-
-按ESC"
+text = "Back to Main Menu"
 
 [node name="Level 1 Press 1" type="Button" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -69,9 +67,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
-text = "第一关
-
-按1"
+text = "Press 1 for L1"
 
 [node name="2 for Level 2" type="Button" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0.784314)

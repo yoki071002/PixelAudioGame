@@ -35,8 +35,6 @@ script = ExtResource("6_ooqki")
 [node name="TilesoundController" type="Node2D" parent="."]
 script = ExtResource("6_dm5g0")
 
-[node name="MXController2" type="Node" parent="."]
-
 [node name="L1V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("8_lt1p8")
