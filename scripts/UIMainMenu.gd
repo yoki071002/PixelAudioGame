@@ -48,7 +48,7 @@ func _input(event):
 			KEY_4:
 				_on_show_keyboard_mapping_pressed()
 			KEY_W:
-				if event.ctrl_pressed or event.cmd_pressed:
+				if event.ctrl_pressed or event.meta_pressed:
 					_on_quit_game_pressed()
 	# 注意：ESC键处理已移至全局ESCMenuController
 
