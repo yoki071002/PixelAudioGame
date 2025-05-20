@@ -1,13 +1,13 @@
 [gd_resource type="TileSet" load_steps=17 format=3 uid="uid://dhddcgqtdfh5y"]
 
-[ext_resource type="Texture2D" uid="uid://chai7f6fwvkpf" path="res://tileset/Ghost.png" id="1_sd4le"]
-[ext_resource type="Texture2D" uid="uid://vgkte07aw3yt" path="res://tileset/Exit.png" id="2_yc1yo"]
-[ext_resource type="Texture2D" uid="uid://ty85nlcfhmie" path="res://tileset/Ghost_Attack_Range.png" id="3_n6je0"]
-[ext_resource type="Texture2D" uid="uid://lom3rln12xix" path="res://tileset/Orpheus.png" id="4_6584o"]
-[ext_resource type="Texture2D" uid="uid://d35w7y818dec8" path="res://tileset/Path.png" id="5_dkqs7"]
-[ext_resource type="Texture2D" uid="uid://bydc04xqfwnqe" path="res://tileset/Siren.png" id="6_8t5ur"]
-[ext_resource type="Texture2D" uid="uid://cnaagtjynvyoj" path="res://tileset/Siren_Singing_Range.png" id="7_1erm2"]
-[ext_resource type="Texture2D" uid="uid://cffbbskjmpe6p" path="res://tileset/Void.png" id="8_k41xo"]
+[ext_resource type="Texture2D" uid="uid://b2bc4kiu4c1tf" path="res://tileset/Ghost.png" id="1_sd4le"]
+[ext_resource type="Texture2D" uid="uid://bxn2vnmkd65kx" path="res://tileset/Exit.png" id="2_yc1yo"]
+[ext_resource type="Texture2D" uid="uid://c2qothcxe8nxd" path="res://tileset/Ghost_Attack_Range.png" id="3_n6je0"]
+[ext_resource type="Texture2D" uid="uid://dqwtumflmdqb4" path="res://tileset/Orpheus.png" id="4_6584o"]
+[ext_resource type="Texture2D" uid="uid://ow1jt45hu780" path="res://tileset/Path.png" id="5_dkqs7"]
+[ext_resource type="Texture2D" uid="uid://nupfk8gkwyk6" path="res://tileset/Siren.png" id="6_8t5ur"]
+[ext_resource type="Texture2D" uid="uid://cowme4t2iqghg" path="res://tileset/Siren_Singing_Range.png" id="7_1erm2"]
+[ext_resource type="Texture2D" uid="uid://dk34oiptdx1bl" path="res://tileset/Void.png" id="8_k41xo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i4e3b"]
 texture = ExtResource("1_sd4le")
