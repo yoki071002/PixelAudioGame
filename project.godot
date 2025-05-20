@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PixelAudioGame"
-run/main_scene="uid://dqvb7vdxc3v4r"
+run/main_scene="uid://b2nuhmowjkldf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
 [autoload]
