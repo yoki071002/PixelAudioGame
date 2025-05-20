@@ -3,12 +3,21 @@ extends CharacterBody2D
 # tile size: 16x16 pixel
 @export var tile_size := 16
 @export var tilemap_node_path := NodePath("../TileMap")
+@onready var blind_cane = $BlindCane
 
 var tilemap: TileMap
 var can_move := true
 
 func _ready():
 	tilemap = get_node(tilemap_node_path)
+	
+	# Pass references from level scene into BlindCane
+	blind_cane.tilemap = get_node("../TileMap")
+	blind_cane.clock = get_node("../../Clock")
+	blind_cane.tile_sound_manager = get_node("../../TilesoundController")
+	blind_cane.player = self 
+
+	print("[Player] Passed references to BlindCane")
 
 func _physics_process(delta):
 	# return if no movement allowed
@@ -53,3 +62,14 @@ func _on_collision_shape_2d_child_entered_tree(node: Node) -> void:
 
 func _on_collision_shape_2d_child_exiting_tree(node: Node) -> void:
 	pass # Replace with function body.
+
+# controls blind cane skill
+func _input(event):
+	if event.is_action_pressed("blind_up"):
+		blind_cane.scan_tiles(Vector2.UP)
+	elif event.is_action_pressed("blind_down"):
+		blind_cane.scan_tiles(Vector2.DOWN)
+	elif event.is_action_pressed("blind_left"):
+		blind_cane.scan_tiles(Vector2.LEFT)
+	elif event.is_action_pressed("blind_right"):
+		blind_cane.scan_tiles(Vector2.RIGHT)
