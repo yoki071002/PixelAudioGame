@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfibpop1n7va"]
 
 [ext_resource type="Script" uid="uid://dhjfq7n63ysrn" path="res://characters/player.gd" id="1_eovys"]
-[ext_resource type="Texture2D" uid="uid://xc0f3hp67avh" path="res://tileset/Orpheus.png" id="2_vb825"]
+[ext_resource type="Texture2D" uid="uid://dfd1x8qwj0l22" path="res://tileset/Orpheus.png" id="2_vb825"]
 [ext_resource type="Script" uid="uid://drb5uq2vj6jw7" path="res://scripts/BlindCane.gd" id="3_vb825"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65n15"]
@@ -19,6 +19,5 @@ shape = SubResource("RectangleShape2D_65n15")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-[node name="BlindCane" type="Node2D" parent="." node_paths=PackedStringArray("audio_player")]
+[node name="BlindCane" type="Node2D" parent="."]
 script = ExtResource("3_vb825")
-audio_player = NodePath("../AudioStreamPlayer2D")
