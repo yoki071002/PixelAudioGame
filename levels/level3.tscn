@@ -1,21 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://cunn5gvepbmsy"]
+[gd_scene load_steps=17 format=3 uid="uid://cunn5gvepbmsy"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_nq7ub"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_7ej46"]
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_tq58f"]
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_k34hm"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_283cd"]
-[ext_resource type="Script" uid="uid://1o7chjv6k0u0" path="res://scripts/InteractiveMusicController.gd" id="7_ulrxl"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_4lmri"]
-[ext_resource type="AudioStream" uid="uid://bo0je3ciril1g" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="9_i3cyh"]
-[ext_resource type="AudioStream" uid="uid://dkgmux77vvnqg" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="10_x6jsp"]
-[ext_resource type="AudioStream" uid="uid://d0jk5q1c1uvgm" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="11_rg68n"]
+[ext_resource type="AudioStream" uid="uid://bb7mtpx0d416h" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="9_i3cyh"]
+[ext_resource type="AudioStream" uid="uid://c1g07bkrw6fny" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="10_x6jsp"]
+[ext_resource type="AudioStream" uid="uid://bnbj2c36sj7is" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="11_rg68n"]
 [ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_g38f6"]
-[ext_resource type="AudioStream" uid="uid://c7h5ddt62rkah" path="res://audio/Soundtrack/ogg/Level 1/Loop 1.ogg" id="13_u3me6"]
-[ext_resource type="AudioStream" uid="uid://bvf6qbg8h5co7" path="res://audio/Soundtrack/ogg/Level 1/Loop 2.ogg" id="14_4sv2i"]
-[ext_resource type="AudioStream" uid="uid://bok38vlk3eval" path="res://audio/Soundtrack/ogg/Level 1/Loop 3.ogg" id="15_6slt7"]
-[ext_resource type="Texture2D" uid="uid://bydc04xqfwnqe" path="res://tileset/Siren.png" id="15_7ej46"]
-[ext_resource type="Texture2D" uid="uid://cnaagtjynvyoj" path="res://tileset/Siren_Singing_Range.png" id="16_tq58f"]
+[ext_resource type="AudioStream" uid="uid://jbbswt330hdi" path="res://audio/Soundtrack/ogg/Level 1/Loop 1.ogg" id="13_u3me6"]
+[ext_resource type="AudioStream" uid="uid://bmk4q7olgphrn" path="res://audio/Soundtrack/ogg/Level 1/Loop 2.ogg" id="14_4sv2i"]
+[ext_resource type="AudioStream" uid="uid://kp6u4l8r2be7" path="res://audio/Soundtrack/ogg/Level 1/Loop 3.ogg" id="15_6slt7"]
+[ext_resource type="Texture2D" uid="uid://cnh1fde37jr31" path="res://tileset/Siren.png" id="15_7ej46"]
+[ext_resource type="Texture2D" uid="uid://b7rb5l1uygcox" path="res://tileset/Siren_Singing_Range.png" id="16_tq58f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -41,12 +40,6 @@ script = ExtResource("4_k34hm")
 script = ExtResource("6_283cd")
 
 [node name="MXController2" type="Node" parent="."]
-script = ExtResource("7_ulrxl")
-layer_music_paths = {
-7: "res://audio/Music/MX_Trial_L1.wav",
-8: "res://audio/Music/MX_Trial_L2.wav",
-9: "res://audio/Music/MX_Trial_L3.wav"
-}
 
 [node name="L1V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
