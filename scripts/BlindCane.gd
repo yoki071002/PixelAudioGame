@@ -66,47 +66,52 @@ func _on_beat_tick():
 	if not scanning:
 		return
 
-	# placeholder for 1 bit after the activation
 	if queued_beat_start:
 		queued_beat_start = false
 		return 
 		
-	if scanning and current_ind < scanQueue.size():
+	if current_ind < scanQueue.size():
 		var tile = scanQueue[current_ind]
 		var world_pos = tilemap.map_to_local(tile)
 		kill_cand = null
-		
-		# normal tiles
-		tile_sound_manager.play_tile_sound_at(world_pos)
+
+		var sound_played := false
 
 		# ghosts
 		for ghost in get_tree().get_nodes_in_group("ghost"):
 			if ghost.is_alive:
 				if ghost.is_attack_tile(tile):
 					tile_sound_manager.play("res://audio/ghost_attack.wav")
-					return
+					sound_played = true
+					break
 				elif ghost.is_ghost_tile(tile):
 					tile_sound_manager.play("res://audio/ghost.wav")
 					kill_cand = ghost
-					return
+					sound_played = true
+					break
 
 		# sirens
-		for siren in get_tree().get_nodes_in_group("siren"):
-			if siren.is_alive:
-				var level = siren.get_attack_level(tile)
-				if level > 0:
-					tile_sound_manager.play("res://audio/siren_count%d.wav" % level)
-					return
-				elif siren.is_siren_tile(tile):
-					tile_sound_manager.play("res://audio/siren.wav")
-					kill_cand = siren
-					return
+		if not sound_played:
+			for siren in get_tree().get_nodes_in_group("siren"):
+				if siren.is_alive:
+					var level = siren.get_attack_level(tile)
+					if level > 0:
+						tile_sound_manager.play("res://audio/siren_count%d.wav" % level)
+						sound_played = true
+						break
+					elif siren.is_siren_tile(tile):
+						tile_sound_manager.play("res://audio/siren.wav")
+						kill_cand = siren
+						sound_played = true
+						break
 
-		# Default property sound (e.g. for road/lava)
-		tile_sound_manager.play_tile_sound_at(world_pos)
+		# normal property sound
+		if not sound_played:
+			tile_sound_manager.play_tile_sound_at(world_pos)
+
 		current_ind += 1
-		
-	elif scanning:
+
+	else:
 		scanning = false
 		kill_cand = null
 
