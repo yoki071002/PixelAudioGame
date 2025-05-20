@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 [autoload]
 
 AudioManager="*res://scripts/AudioManager.gd"
-MenuManager="*res://scripts/MenuManager.gd"
+ESCMenuController="*res://scripts/ESCMenuController.gd"
 
 [display]
 
