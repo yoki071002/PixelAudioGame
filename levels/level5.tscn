@@ -1,20 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://i4un1bhbwu03"]
+[gd_scene load_steps=10 format=3 uid="uid://i4un1bhbwu03"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_y18d6"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_vobc4"]
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_52hkl"]
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_gw0q8"]
-[ext_resource type="Script" uid="uid://fkf0e2tptgjo" path="res://scripts/AudioManager.gd" id="5_33jjl"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_ooqki"]
 [ext_resource type="Script" uid="uid://1o7chjv6k0u0" path="res://scripts/InteractiveMusicController.gd" id="7_nv45w"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_lt1p8"]
-[ext_resource type="AudioStream" uid="uid://cu4ls5rjwafuu" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="9_poffv"]
-[ext_resource type="AudioStream" uid="uid://bpwsexp36fier" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="10_62um3"]
-[ext_resource type="AudioStream" uid="uid://b0q3qsq36pdlo" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="11_s7sq4"]
 [ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_8380d"]
-[ext_resource type="AudioStream" uid="uid://c7h5ddt62rkah" path="res://audio/Soundtrack/ogg/Level 1/Loop 1.ogg" id="13_r883y"]
-[ext_resource type="AudioStream" uid="uid://bvf6qbg8h5co7" path="res://audio/Soundtrack/ogg/Level 1/Loop 2.ogg" id="14_bq8nq"]
-[ext_resource type="AudioStream" uid="uid://bok38vlk3eval" path="res://audio/Soundtrack/ogg/Level 1/Loop 3.ogg" id="15_7i6ro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -28,6 +21,8 @@ layer_0/tile_data = PackedInt32Array(-65536, 6, 0, -131072, 6, 0, -196608, 6, 0,
 
 [node name="Player" parent="." instance=ExtResource("2_vobc4")]
 position = Vector2(8, -8)
+tile_size = 16
+tilemap_node_path = NodePath("../TileMap")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -35,9 +30,6 @@ script = ExtResource("3_52hkl")
 
 [node name="Clock" type="Node" parent="."]
 script = ExtResource("4_gw0q8")
-
-[node name="AudioManager" type="Node" parent="."]
-script = ExtResource("5_33jjl")
 
 [node name="SFXController" type="Node" parent="."]
 script = ExtResource("6_ooqki")
@@ -53,7 +45,6 @@ layer_music_paths = {
 [node name="L1V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("8_lt1p8")
-audio_clip = ExtResource("9_poffv")
 audio_type = "\"narration\""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L1V1"]
@@ -63,7 +54,6 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="L1V2" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("8_lt1p8")
-audio_clip = ExtResource("10_62um3")
 audio_type = "\"narration\""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L1V2"]
@@ -74,7 +64,6 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="L1V3" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("8_lt1p8")
-audio_clip = ExtResource("11_s7sq4")
 audio_type = "\"narration\""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="L1V3"]
@@ -85,7 +74,6 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="Layer1" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("12_8380d")
-audio_clip = ExtResource("13_r883y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer1"]
 shape = SubResource("RectangleShape2D_lf3p4")
@@ -94,7 +82,6 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="Layer2" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("12_8380d")
-audio_clip = ExtResource("14_bq8nq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2"]
 position = Vector2(0, -80)
@@ -104,7 +91,6 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="Layer3" type="Area2D" parent="."]
 position = Vector2(8, -8)
 script = ExtResource("12_8380d")
-audio_clip = ExtResource("15_7i6ro")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer3"]
 position = Vector2(80, -80)

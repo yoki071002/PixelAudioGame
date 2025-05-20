@@ -5,11 +5,10 @@ extends CharacterBody2D
 @export var tilemap_node_path := NodePath("../TileMap")
 
 var tilemap: TileMap
+var can_move := true
 
 func _ready():
 	tilemap = get_node(tilemap_node_path)
-
-var can_move := true
 
 func _physics_process(delta):
 	# return if no movement allowed
@@ -35,7 +34,7 @@ func _physics_process(delta):
 
 		# boundary check
 		if (target_tile.x >= 0 and target_tile.x < 8 and
-		   target_tile.y < 0 and target_tile.y > -13):
+			target_tile.y < 0 and target_tile.y > -13):
 			global_position = tilemap.map_to_local(target_tile)
 			print("Moved to: ", global_position)
 

@@ -1,27 +1,25 @@
-[gd_scene load_steps=20 format=3 uid="uid://mspuadadmin2"]
+[gd_scene load_steps=18 format=3 uid="uid://b2nuhmowjkldf"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_sjb42"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_pdtm5"]
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_b3oru"]
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_ua5ty"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="5_61w3m"]
-[ext_resource type="Script" uid="uid://fkf0e2tptgjo" path="res://scripts/AudioManager.gd" id="5_yydhl"]
 [ext_resource type="Script" uid="uid://1o7chjv6k0u0" path="res://scripts/InteractiveMusicController.gd" id="6_pdpul"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="7_045es"]
-[ext_resource type="AudioStream" uid="uid://cu4ls5rjwafuu" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="8_045es"]
-[ext_resource type="AudioStream" uid="uid://bpwsexp36fier" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="9_omn1t"]
-[ext_resource type="AudioStream" uid="uid://b0q3qsq36pdlo" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="10_lf3p4"]
+[ext_resource type="AudioStream" uid="uid://bo0je3ciril1g" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="8_045es"]
+[ext_resource type="AudioStream" uid="uid://dkgmux77vvnqg" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="9_omn1t"]
+[ext_resource type="AudioStream" uid="uid://d0jk5q1c1uvgm" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="10_lf3p4"]
 [ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_jq2cn"]
 [ext_resource type="AudioStream" uid="uid://c7h5ddt62rkah" path="res://audio/Soundtrack/ogg/Level 1/Loop 1.ogg" id="13_a5s8o"]
 [ext_resource type="AudioStream" uid="uid://bvf6qbg8h5co7" path="res://audio/Soundtrack/ogg/Level 1/Loop 2.ogg" id="14_ls4ot"]
 [ext_resource type="AudioStream" uid="uid://bok38vlk3eval" path="res://audio/Soundtrack/ogg/Level 1/Loop 3.ogg" id="15_tx362"]
 [ext_resource type="Script" uid="uid://pollk5eh72gu" path="res://scripts/Win.gd" id="16_ls4ot"]
-[ext_resource type="PackedScene" uid="uid://ccbieme446xff" path="res://levels/MainMenu.tscn" id="17_tx362"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7nqg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8ofq"]
 size = Vector2(16, 16)
 
 [node name="Level1" type="Node2D"]
@@ -33,6 +31,8 @@ layer_0/tile_data = PackedInt32Array(-65536, 6, 0, -131072, 6, 0, -196608, 6, 0,
 
 [node name="Player" parent="." instance=ExtResource("2_pdtm5")]
 position = Vector2(8, -8)
+tile_size = 16
+tilemap_node_path = NodePath("../TileMap")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -40,9 +40,6 @@ script = ExtResource("3_b3oru")
 
 [node name="Clock" type="Node" parent="."]
 script = ExtResource("4_ua5ty")
-
-[node name="AudioManager" type="Node" parent="."]
-script = ExtResource("5_yydhl")
 
 [node name="SFXController" type="Node" parent="."]
 script = ExtResource("5_61w3m")
@@ -116,13 +113,12 @@ position = Vector2(80, -80)
 shape = SubResource("RectangleShape2D_lf3p4")
 debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Win" type="Area2D" parent="."]
 script = ExtResource("16_ls4ot")
-level_scene = ExtResource("17_tx362")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Win"]
 position = Vector2(120, -184)
-shape = SubResource("RectangleShape2D_l7nqg")
+shape = SubResource("RectangleShape2D_w8ofq")
 
 [connection signal="body_entered" from="L1V1" to="Player" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="L1V1" to="Player" method="_on_area_2d_body_exited"]

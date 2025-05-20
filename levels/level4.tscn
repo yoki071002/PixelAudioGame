@@ -1,16 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://vv3nv6e47uwu"]
+[gd_scene load_steps=16 format=3 uid="uid://vv3nv6e47uwu"]
 
 [ext_resource type="TileSet" uid="uid://dhddcgqtdfh5y" path="res://tileset/basic_tiles.tres" id="1_yruw8"]
 [ext_resource type="PackedScene" uid="uid://cfibpop1n7va" path="res://characters/player.tscn" id="2_1c06p"]
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_b8ghs"]
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_lrvx3"]
-[ext_resource type="Script" uid="uid://fkf0e2tptgjo" path="res://scripts/AudioManager.gd" id="5_0halg"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_21lkn"]
 [ext_resource type="Script" uid="uid://1o7chjv6k0u0" path="res://scripts/InteractiveMusicController.gd" id="7_im0iu"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_efk67"]
-[ext_resource type="AudioStream" uid="uid://cu4ls5rjwafuu" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="9_ok0nw"]
-[ext_resource type="AudioStream" uid="uid://bpwsexp36fier" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="10_g2luv"]
-[ext_resource type="AudioStream" uid="uid://b0q3qsq36pdlo" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="11_um8t4"]
+[ext_resource type="AudioStream" uid="uid://bo0je3ciril1g" path="res://audio/Narration/Ogg/Vo_L1V1.ogg" id="9_ok0nw"]
+[ext_resource type="AudioStream" uid="uid://dkgmux77vvnqg" path="res://audio/Narration/Ogg/Vo_L1V2.ogg" id="10_g2luv"]
+[ext_resource type="AudioStream" uid="uid://d0jk5q1c1uvgm" path="res://audio/Narration/Ogg/Vo_L1V3.ogg" id="11_um8t4"]
 [ext_resource type="Script" uid="uid://cckkk2s3own8s" path="res://scripts/PlayAudioOnAwake.gd" id="12_jyx7s"]
 [ext_resource type="AudioStream" uid="uid://c7h5ddt62rkah" path="res://audio/Soundtrack/ogg/Level 1/Loop 1.ogg" id="13_kxe21"]
 [ext_resource type="AudioStream" uid="uid://bvf6qbg8h5co7" path="res://audio/Soundtrack/ogg/Level 1/Loop 2.ogg" id="14_m1yk4"]
@@ -28,6 +27,8 @@ layer_0/tile_data = PackedInt32Array(-65536, 6, 0, -131072, 6, 0, -196608, 6, 0,
 
 [node name="Player" parent="." instance=ExtResource("2_1c06p")]
 position = Vector2(8, -8)
+tile_size = 16
+tilemap_node_path = NodePath("../TileMap")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -35,9 +36,6 @@ script = ExtResource("3_b8ghs")
 
 [node name="Clock" type="Node" parent="."]
 script = ExtResource("4_lrvx3")
-
-[node name="AudioManager" type="Node" parent="."]
-script = ExtResource("5_0halg")
 
 [node name="SFXController" type="Node" parent="."]
 script = ExtResource("6_21lkn")
