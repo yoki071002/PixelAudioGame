@@ -34,8 +34,9 @@ offset_top = 35.0
 offset_right = 150.0
 offset_bottom = 87.0
 grow_horizontal = 2
+scale = Vector2(0.996126, 1)
 theme_override_font_sizes/font_size = 36
-text = "选择关卡"
+text = "Choose Your Level"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
@@ -59,7 +60,9 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
-text = "Back to Main Menu"
+text = "Main Menu
+
+Press ESC"
 
 [node name="Level 1 Press 1" type="Button" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -67,7 +70,9 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
-text = "Press 1 for L1"
+text = "Level 1
+
+Press 1"
 
 [node name="2 for Level 2" type="Button" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -75,9 +80,9 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
-text = "第二关
+text = "Level 2
 
-按2"
+Press 2"
 
 [node name="3 for Level 3" type="Button" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -85,9 +90,9 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
-text = "第三关
+text = "Level 3
 
-按3"
+Press 3"
 
 [node name="4 for Level 4" type="Button" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -95,9 +100,9 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
-text = "第四关
+text = "Level 4
 
-按4"
+Press 4"
 
 [node name="5 for Level 5" type="Button" parent="VBoxContainer"]
 modulate = Color(1, 1, 1, 0.784314)
@@ -105,6 +110,6 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_colors/font_disabled_color = Color(0, 1, 0, 1)
-text = "第五关
+text = "Level 5
 
-按5"
+Press 5"
