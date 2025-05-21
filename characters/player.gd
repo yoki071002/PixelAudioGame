@@ -78,10 +78,6 @@ func _physics_process(delta):
 		var target_tile := current_tile + input_dir
 		# print("Player tile: ", current_tile) # 可以取消注释以进行调试
 
-		# boundary check - 确保您的边界检查逻辑与您的tilemap坐标系匹配
-		# 示例边界： var map_limits = tilemap.get_used_rect()
-		# if map_limits.has_point(target_tile):
-		# 以下是您之前的边界检查，请确认它是否正确
 		if (target_tile.x >= 0 and target_tile.x < 8 and
 			target_tile.y < 0 and target_tile.y > -13):
 
@@ -93,8 +89,7 @@ func _physics_process(delta):
 			var tile_data = tilemap.get_cell_tile_data(0, target_tile) # 获取瓦片数据
 			var tile_source_id = -1
 			if tile_data: # 确保 tile_data 不是 null
-				# 在Godot 4.x中，通常通过atlas coordinates和source id来识别瓦片
-				# 以下假设您想检查的是 source_id，如果您的瓦片集设置不同，可能需要调整
+				# 在Godot 4.x中，通常通过atlas coordinates和source id来识别瓦片以下假设想检查的是 source_id，如果您的瓦片集设置不同，可能需要调整
 				tile_source_id = tilemap.get_cell_source_id(0, target_tile)
 			# print("踩到了tile Source ID: ", tile_source_id) # 可以取消注释以进行调试
 			
@@ -139,15 +134,6 @@ func win():
 func find_level_complete_manager():
 	var lcm_script_resource = load("res://scripts/LevelCompleteManager.gd")
 	var parent_node = get_parent()
-	if is_instance_valid(parent_node):
-		var lcm_node = parent_node.get_node_or_null("LevelCompleteManager")
-		if is_instance_valid(lcm_node) and lcm_node.get_script() == lcm_script_resource:
-			return lcm_node
-
-	var root_lcm = get_tree().root.get_node_or_null("LevelCompleteManager")
-	if is_instance_valid(root_lcm) and root_lcm.get_script() == lcm_script_resource:
-		return root_lcm
-
 	# 如果都找不到，并且你的设计允许动态创建，则创建一个新的
 	print("[Player] LevelCompleteManager not found, creating a new one.")
 	var new_lcm_instance = Node.new() # 创建一个基础 Node

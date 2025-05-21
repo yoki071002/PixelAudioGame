@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bejxu08m8oiqr"
+path="res://.godot/imported/MS_LV2_Intro.wav-6b82fc0d16e5adf4d54d23eaca19f879.sample"
+
+[deps]
+
+source_file="res://Audio/Soundtrack/wav(for listening only)/Level 2/MS_LV2_Intro.wav"
+dest_files=["res://.godot/imported/MS_LV2_Intro.wav-6b82fc0d16e5adf4d54d23eaca19f879.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

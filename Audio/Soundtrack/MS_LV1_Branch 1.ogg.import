@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dml4yvxnujp0l"
+path="res://.godot/imported/MS_LV1_Branch 1.ogg-7ec88cfb5e390325fd0ed8f0153d38f6.oggvorbisstr"
+
+[deps]
+
+source_file="res://Audio/Soundtrack/MS_LV1_Branch 1.ogg"
+dest_files=["res://.godot/imported/MS_LV1_Branch 1.ogg-7ec88cfb5e390325fd0ed8f0153d38f6.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=80.0
+beat_count=0
+bar_beats=4

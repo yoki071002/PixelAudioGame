@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dohxt5r5hfpwy"
+path="res://.godot/imported/MS_LV1_Layer_3.wav-d7cff06a7d7b1ea8b4a2646a919f0a33.sample"
+
+[deps]
+
+source_file="res://Audio/Soundtrack/wav(for listening only)/Level 1/MS_LV1_Layer_3.wav"
+dest_files=["res://.godot/imported/MS_LV1_Layer_3.wav-d7cff06a7d7b1ea8b4a2646a919f0a33.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
