@@ -11,6 +11,7 @@ threshold = -28.2
 ratio = 2.4
 attack_us = 154.0
 release_ms = 159.0
+mix = 0.7
 sidechain = &"SFX"
 
 [resource]

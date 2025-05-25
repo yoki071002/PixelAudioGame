@@ -39,10 +39,9 @@ script = ExtResource("4_ua5ty")
 [node name="SFXController" type="Node" parent="."]
 script = ExtResource("5_61w3m")
 
-[node name="TilesoundController" type="Node2D" parent="." node_paths=PackedStringArray("tilemap", "audio_player")]
+[node name="TilesoundController" type="Node2D" parent="." node_paths=PackedStringArray("tilemap")]
 script = ExtResource("6_jq2cn")
 tilemap = NodePath("../TileMap")
-audio_player = NodePath("")
 
 [node name="L1V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
@@ -88,10 +87,9 @@ script = ExtResource("15_jq2cn")
 [node name="Layer1" type="Area2D" parent="."]
 position = Vector2(8, -8)
 audio_bus_override = true
-audio_bus_name = &"Narration"
+audio_bus_name = &"MusicBus"
 script = ExtResource("7_045es")
 audio_clip = ExtResource("12_f7u7y")
-audio_type = "\"narration\""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer1"]
 shape = SubResource("RectangleShape2D_lf3p4")
@@ -100,7 +98,7 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="Layer2" type="Area2D" parent="."]
 position = Vector2(8, -8)
 audio_bus_override = true
-audio_bus_name = &"Narration"
+audio_bus_name = &"MusicBus"
 script = ExtResource("7_045es")
 audio_clip = ExtResource("13_jq2cn")
 audio_type = "\"narration\""
@@ -113,7 +111,7 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="Layer3" type="Area2D" parent="."]
 position = Vector2(8, -8)
 audio_bus_override = true
-audio_bus_name = &"Narration"
+audio_bus_name = &"MusicBus"
 script = ExtResource("7_045es")
 audio_clip = ExtResource("14_a5s8o")
 audio_type = "\"narration\""

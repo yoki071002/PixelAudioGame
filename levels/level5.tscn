@@ -5,16 +5,16 @@
 [ext_resource type="Script" uid="uid://l3dvnqm81cya" path="res://scripts/camera_2d.gd" id="3_52hkl"]
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_gw0q8"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_ooqki"]
-[ext_resource type="AudioStream" uid="uid://de03nd783whhe" path="res://Audio/Narration/Ogg/Vo_L5V1.ogg" id="7_vp6pq"]
-[ext_resource type="AudioStream" uid="uid://bw0v45pi8c3lv" path="res://Audio/Narration/Ogg/Vo_L5V2.ogg" id="8_66nwl"]
+[ext_resource type="AudioStream" uid="uid://bj0g5vmh2rpaq" path="res://Audio/Narration/Ogg/Vo_L5V1.ogg" id="7_vp6pq"]
+[ext_resource type="AudioStream" uid="uid://emonh6ebjavc" path="res://Audio/Narration/Ogg/Vo_L5V2.ogg" id="8_66nwl"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_lt1p8"]
-[ext_resource type="AudioStream" uid="uid://nnlq7n4nhjqn" path="res://Audio/Soundtrack/MS_LV5_Loop.ogg" id="9_66nwl"]
-[ext_resource type="Texture2D" uid="uid://cs83djq0jk1dn" path="res://tileset/Bullet.png" id="10_t5gjd"]
+[ext_resource type="AudioStream" uid="uid://dtxkyprq7fcuq" path="res://Audio/Soundtrack/MS_LV5_Loop.ogg" id="9_66nwl"]
+[ext_resource type="Texture2D" uid="uid://cqov3lyqxjp0e" path="res://tileset/Bullet.png" id="10_t5gjd"]
 [ext_resource type="Script" uid="uid://gk50n3vjpv0u" path="res://scripts/Sniper.gd" id="11_1oekh"]
-[ext_resource type="Texture2D" uid="uid://r8tqfcbcvldo" path="res://tileset/Ghost.png" id="12_y18d6"]
-[ext_resource type="Texture2D" uid="uid://blvm4x4pgs1la" path="res://tileset/Ghost_Attack_Range.png" id="13_vobc4"]
-[ext_resource type="Texture2D" uid="uid://btng03bos0nkb" path="res://tileset/Siren.png" id="14_52hkl"]
-[ext_resource type="Texture2D" uid="uid://dphq38bjshyva" path="res://tileset/Siren_Singing_Range.png" id="15_gw0q8"]
+[ext_resource type="Texture2D" uid="uid://b2hln0g5xlnak" path="res://tileset/Ghost.png" id="12_y18d6"]
+[ext_resource type="Texture2D" uid="uid://bgtpyo4ld0uu" path="res://tileset/Ghost_Attack_Range.png" id="13_vobc4"]
+[ext_resource type="Texture2D" uid="uid://d3rfx6xb3xdfk" path="res://tileset/Siren.png" id="14_52hkl"]
+[ext_resource type="Texture2D" uid="uid://t5n7opsjansb" path="res://tileset/Siren_Singing_Range.png" id="15_gw0q8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -42,6 +42,7 @@ script = ExtResource("6_ooqki")
 
 [node name="L5V1" type="Area2D" parent="."]
 position = Vector2(8, -8)
+audio_bus_name = &"Narration"
 script = ExtResource("8_lt1p8")
 audio_clip = ExtResource("7_vp6pq")
 audio_type = "\"narration\""
@@ -52,6 +53,7 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 
 [node name="L5V2" type="Area2D" parent="."]
 position = Vector2(8, -8)
+audio_bus_name = &"Narration"
 script = ExtResource("8_lt1p8")
 audio_clip = ExtResource("8_66nwl")
 audio_type = "\"narration\""
@@ -64,6 +66,7 @@ debug_color = Color(9.72241e-06, 0.588288, 0.762874, 0.42)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_66nwl")
 autoplay = true
+bus = &"MusicBus"
 
 [node name="Node" type="Node" parent="."]
 

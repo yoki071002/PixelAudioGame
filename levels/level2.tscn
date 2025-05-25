@@ -6,15 +6,15 @@
 [ext_resource type="Script" uid="uid://dssdyjgcha5hr" path="res://scripts/clock.gd" id="4_w8ofq"]
 [ext_resource type="Script" uid="uid://7t367kp6rptu" path="res://scripts/TilesoundController.gd" id="6_fjysh"]
 [ext_resource type="Script" uid="uid://cax3dbyk6mpr4" path="res://scripts/SFXController.gd" id="6_s0tuf"]
-[ext_resource type="AudioStream" uid="uid://v828x6kejtok" path="res://Audio/Narration/Ogg/Vo_L2V1.ogg" id="8_hq01p"]
+[ext_resource type="AudioStream" uid="uid://bibqf0ookhted" path="res://Audio/Narration/Ogg/Vo_L2V1.ogg" id="8_hq01p"]
 [ext_resource type="Script" uid="uid://bui48f4yyn3w" path="res://scripts/PlayAudioOnCollision.gd" id="8_qegch"]
-[ext_resource type="AudioStream" uid="uid://mktsk2rrnop1" path="res://Audio/Narration/Ogg/Vo_L2V2.ogg" id="9_fjysh"]
-[ext_resource type="Texture2D" uid="uid://r8tqfcbcvldo" path="res://tileset/Ghost.png" id="11_fjysh"]
-[ext_resource type="Texture2D" uid="uid://blvm4x4pgs1la" path="res://tileset/Ghost_Attack_Range.png" id="12_bcewn"]
+[ext_resource type="AudioStream" uid="uid://8b374djtfnud" path="res://Audio/Narration/Ogg/Vo_L2V2.ogg" id="9_fjysh"]
+[ext_resource type="Texture2D" uid="uid://b2hln0g5xlnak" path="res://tileset/Ghost.png" id="11_fjysh"]
+[ext_resource type="Texture2D" uid="uid://bgtpyo4ld0uu" path="res://tileset/Ghost_Attack_Range.png" id="12_bcewn"]
 [ext_resource type="Script" uid="uid://cn5j8adckckb0" path="res://scripts/LevelCompleteManager.gd" id="12_fjysh"]
 [ext_resource type="Script" uid="uid://cj3ly1ir7uiwe" path="res://scripts/Intro+Loop.gd" id="13_qegch"]
-[ext_resource type="AudioStream" uid="uid://ca5vp10k2h5v2" path="res://Audio/Soundtrack/MS_LV2_Intro.ogg" id="14_jai45"]
-[ext_resource type="AudioStream" uid="uid://bkemoe85iugtj" path="res://Audio/Soundtrack/MS_LV2_Loop.ogg" id="15_jj0ry"]
+[ext_resource type="AudioStream" uid="uid://duchs6lgvqcsd" path="res://Audio/Soundtrack/MS_LV2_Intro.ogg" id="14_jai45"]
+[ext_resource type="AudioStream" uid="uid://wpub6814saur" path="res://Audio/Soundtrack/MS_LV2_Loop.ogg" id="15_jj0ry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf3p4"]
 size = Vector2(16, 16)
@@ -140,6 +140,7 @@ texture = ExtResource("12_bcewn")
 script = ExtResource("12_fjysh")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"MusicBus"
 script = ExtResource("13_qegch")
 first_clip = ExtResource("14_jai45")
 second_clip = ExtResource("15_jj0ry")
